@@ -157,44 +157,52 @@
           eventRender: this.eventRender,
           dayRender: this.dayRender,
           dayClick: (date, jsEvent, view) => {
-             this.dispatchEvent(new CustomEvent('event-select', { detail: { event: "data" } }));
+            // shorthand object is used to construct the detail of the dispatched event 
+            this.dispatchEvent(new CustomEvent('day-click', { detail: { date, jsEvent, view } }));
           },
           drop: (date, jsEvent, ui, resourceId) => {
-
+            this.dispatchEvent(new CustomEvent('drop', { detail: { date, jsEvent, ui, resourceId } }));
           },
           eventClick: (calEvent, jsEvent, view) => {
-            this.dispatchEvent(new CustomEvent('event-select', { detail: { event: "data" } }));
-
-
+            this.dispatchEvent(new CustomEvent('event-cick', { detail: { calEvent, jsEvent, view } }));
           },
           eventMouseover: (calEvent, jsEvent, view) => {
-
+            this.dispatchEvent(new CustomEvent('event-mouse-over', { detail: { calEvent, jsEvent, view } }));
           },
           eventMouseout: (calEvent, jsEvent, view) => {
+            this.dispatchEvent(new CustomEvent('event-mouse-out', { detail: { calEvent, jsEvent, view } }));
 
           },
           eventDragStart: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-drag-start', { detail: { event, jsEvent, ui, view } }));
 
           },
           eventDragStop: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-drag-start', { detail: { event, jsEvent, ui, view } }));
 
           },
           eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-drop', { detail: { event, delta, revertFunc, jsEvent, ui, view } }));
 
           },
           eventResizeStart: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-resize-start', { detail: { event, jsEvent, ui, view } }));
 
           },
           eventResizeStop: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-resize-stop', { detail: { event, jsEvent, ui, view } }));
 
           },
           eventResize: (event, delta, revertFunc, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-resize', { detail: { event, delta, revertFunc, jsEvent, ui, view } }));
 
           },
           viewRender: (view, element) => {
+            this.dispatchEvent(new CustomEvent('view-render', { detail: { view, element } }));
 
           },
           viewDestroy: (view, element) => {
+            this.dispatchEvent(new CustomEvent('view-destroy', { detail: { view, element } }));
 
           }
 

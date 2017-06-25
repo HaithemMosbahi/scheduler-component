@@ -24,7 +24,6 @@
         <template>
           <full-calendar
              default-view="agendaWeek"
-             
              header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'></full-calendar>
         </template>
       </demo-snippet>
@@ -32,8 +31,17 @@
   </body>
   <script>
      var doc = document.querySelector("full-calendar");
-     doc.addEventListener("event-select",function(data){
-        console.log("Select event detected");
+     doc.addEventListener("day-click",function(data){
+        console.log("day is clicked ");
+     });
+     doc.addEventListener("event-click",function(data){
+        console.log("event is clicked");
+     });
+     doc.addEventListener("drop",function(data){
+        console.log("drop detected");
+     });
+     doc.addEventListener("view-render",function(data){
+        console.log("view is rendered");
      });
   </script>
 </html>
