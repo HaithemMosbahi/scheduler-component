@@ -32,12 +32,12 @@
           header: Object,
           events: Array,
           weekends: Boolean,
-          rtl:Boolean,
+          rtl: Boolean,
           hiddenDays: Array,
           fixedWeekCount: Boolean,
           weekNumbers: {
-            type:Boolean,
-            value:true
+            type: Boolean,
+            value: true
           },
           businessHours: Object,
           height: Number,
@@ -107,7 +107,8 @@
             value: () => { }
           },
           options: Object,
-          _config: Object
+          _config: Object,
+          _schedule: Object
         };
       }
       /**
@@ -154,12 +155,59 @@
           eventOverlap: this.eventOverlap,
           eventConstraint: this.eventConstraint,
           eventRender: this.eventRender,
-          dayRender: this.dayRender
+          dayRender: this.dayRender,
+          dayClick: (date, jsEvent, view) => {
+            
+          },
+          drop: (date, jsEvent, ui, resourceId) => {
+            
+          },
+          eventClick: (calEvent, jsEvent, view) => {
+            
+          },
+          eventMouseover: (calEvent, jsEvent, view) => {
+            
+          },
+          eventMouseout: (calEvent, jsEvent, view) => {
+            
+          },
+          eventDragStart: (event, jsEvent, ui, view) => {
+            
+          },
+          eventDragStop: (event, jsEvent, ui, view) => {
+            
+          },
+          eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
+            
+          },
+          eventResizeStart: (event, jsEvent, ui, view) => {
+            
+          },
+          eventResizeStop: (event, jsEvent, ui, view) => {
+            
+          },
+          eventResize: (event, delta, revertFunc, jsEvent, ui, view) => {
+           
+          },
+          viewRender: (view, element) => {
+           
+          },
+          viewDestroy: (view, element) => {
+            
+          }
+
         }
+        this._initialize();
+      }
+      /**
+      * This will initialize the calendar component
+      */
+      _initialize() {
         let calendar = this.$.calendar;
         //initialize fullCalendar component
-        jQuery(calendar).fullCalendar(this._config);
+        this._schedule = (calendar).fullCalendar(this._config);
       }
+
     }
 
     window.customElements.define(FullCalendar.is, FullCalendar);
