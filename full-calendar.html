@@ -6,10 +6,10 @@
 
 
 <dom-module id="full-calendar">
-    <link rel="import" type="css" href="../fullcalendar/dist/fullcalendar.min.css">
+  <link rel="import" type="css" href="../fullcalendar/dist/fullcalendar.min.css">
   <template>
     <style>
-      :host {
+       :host {
         display: block;
       }
     </style>
@@ -29,10 +29,85 @@
       static get is() { return 'full-calendar'; }
       static get properties() {
         return {
-          prop1: {
+          header: Object,
+          events: Array,
+          weekends: Boolean,
+          rtl:Boolean,
+          hiddenDays: Array,
+          fixedWeekCount: Boolean,
+          weekNumbers: {
+            type:Boolean,
+            value:true
+          },
+          businessHours: Object,
+          height: Number,
+          defaultDate: Object,
+          editable: Boolean,
+          droppable: Boolean,
+          ventStartEditable: Boolean,
+          eventDurationEditable: Boolean,
+          defaultView: {
             type: String,
-            value: 'full-calendar is here'
-          }
+            value: 'month'
+          },
+          allDaySlot: {
+            type: Boolean,
+            value: true
+          },
+          allDayText: {
+            type: String,
+            value: 'all-day'
+          },
+          slotDuration: {
+            type: String,
+            value: '00:30:00'
+          },
+          slotLabelInterval: Object,
+          snapDuration: Object,
+          scrollTime: {
+            type: String,
+            value: '06:00:00'
+          },
+          minTime: {
+            type: String,
+            value: '00:00:00'
+          },
+          maxTime: {
+            type: String,
+            value: '24:00:00'
+          },
+          slotEventOverlap: {
+            type: Boolean,
+            value: true
+          },
+          nowIndicator: Boolean,
+          dragRevertDuration: {
+            type: Number,
+            value: 500
+          },
+          dragOpacity: {
+            type: Number,
+            value: .75
+          },
+          dragScroll: {
+            type: Boolean,
+            value: true
+          },
+          eventOverlap: Object,
+          eventConstraint: Object,
+          locale: String,
+          timezone: Boolean,
+          timeFormat: String,
+          eventRender: {
+            type: Object,
+            value: () => { }
+          },
+          dayRender: {
+            type: Object,
+            value: () => { }
+          },
+          options: Object,
+          _config: Object
         };
       }
       /**
@@ -40,11 +115,50 @@
       */
       ready() {
         super.ready();
+        // Construct calendar's config object
+        this._config = {
+          theme: false,
+          header: this.header,
+          isRTL: this.rtl,
+          weekends: this.weekends,
+          hiddenDays: this.hiddenDays,
+          fixedWeekCount: this.fixedWeekCount,
+          weekNumbers: this.weekNumbers,
+          businessHours: this.businessHours,
+          height: this.height,
+          contentHeight: this.contentHeight,
+          aspectRatio: this.aspectRatio,
+          eventLimit: this.eventLimit,
+          defaultDate: this.defaultDate,
+          locale: this.locale,
+          timezone: this.timezone,
+          timeFormat: this.timeFormat,
+          editable: this.editable,
+          droppable: this.droppable,
+          eventStartEditable: this.eventStartEditable,
+          eventDurationEditable: this.eventDurationEditable,
+          defaultView: this.defaultView,
+          allDaySlot: this.allDaySlot,
+          allDayText: this.allDayText,
+          slotDuration: this.slotDuration,
+          slotLabelInterval: this.slotLabelInterval,
+          snapDuration: this.snapDuration,
+          scrollTime: this.scrollTime,
+          minTime: this.minTime,
+          maxTime: this.maxTime,
+          slotEventOverlap: this.slotEventOverlap,
+          nowIndicator: this.nowIndicator,
+          dragRevertDuration: this.dragRevertDuration,
+          dragOpacity: this.dragOpacity,
+          dragScroll: this.dragScroll,
+          eventOverlap: this.eventOverlap,
+          eventConstraint: this.eventConstraint,
+          eventRender: this.eventRender,
+          dayRender: this.dayRender
+        }
         let calendar = this.$.calendar;
         //initialize fullCalendar component
-        jQuery(calendar).fullCalendar({
-          // calendar options goes here
-        });
+        jQuery(calendar).fullCalendar(this._config);
       }
     }
 
