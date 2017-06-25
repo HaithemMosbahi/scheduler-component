@@ -1,13 +1,19 @@
 <link rel="import" href="../polymer/polymer-element.html">
 
+<script src="../jquery/dist/jquery.min.js"></script>
+<script src="../moment/min/moment.min.js"></script>
+<script src="../fullcalendar/dist/fullcalendar.min.js"></script>
+
+
 <dom-module id="full-calendar">
+    <link rel="import" type="css" href="../fullcalendar/dist/fullcalendar.min.css">
   <template>
     <style>
       :host {
         display: block;
       }
     </style>
-    <h2>Hello [[prop1]]!</h2>
+    <div id="calendar"></div>
   </template>
 
   <script>
@@ -25,9 +31,20 @@
         return {
           prop1: {
             type: String,
-            value: 'full-calendar'
+            value: 'full-calendar is here'
           }
         };
+      }
+      /**
+      * ready callback
+      */
+      ready() {
+        super.ready();
+        let calendar = this.$.calendar;
+        //initialize fullCalendar component
+        jQuery(calendar).fullCalendar({
+          // calendar options goes here
+        });
       }
     }
 
