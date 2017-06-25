@@ -157,47 +157,53 @@
           eventRender: this.eventRender,
           dayRender: this.dayRender,
           dayClick: (date, jsEvent, view) => {
-            
+             this.dispatchEvent(new CustomEvent('event-select', { detail: { event: "data" } }));
           },
           drop: (date, jsEvent, ui, resourceId) => {
-            
+
           },
           eventClick: (calEvent, jsEvent, view) => {
-            
+            this.dispatchEvent(new CustomEvent('event-select', { detail: { event: "data" } }));
+
+
           },
           eventMouseover: (calEvent, jsEvent, view) => {
-            
+
           },
           eventMouseout: (calEvent, jsEvent, view) => {
-            
+
           },
           eventDragStart: (event, jsEvent, ui, view) => {
-            
+
           },
           eventDragStop: (event, jsEvent, ui, view) => {
-            
+
           },
           eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
-            
+
           },
           eventResizeStart: (event, jsEvent, ui, view) => {
-            
+
           },
           eventResizeStop: (event, jsEvent, ui, view) => {
-            
+
           },
           eventResize: (event, delta, revertFunc, jsEvent, ui, view) => {
-           
+
           },
           viewRender: (view, element) => {
-           
+
           },
           viewDestroy: (view, element) => {
-            
+
           }
 
         }
         this._initialize();
+        //this.$.fullCalendar.addEventListener('event-select', e => this._dateselect(e));
+        //this.$.full-calendar.addEventListener('event-select', e => this._dateselect(e));
+
+
       }
       /**
       * This will initialize the calendar component
@@ -205,7 +211,7 @@
       _initialize() {
         let calendar = this.$.calendar;
         //initialize fullCalendar component
-        this._schedule = (calendar).fullCalendar(this._config);
+        this._schedule = jQuery(calendar).fullCalendar(this._config);
       }
 
     }

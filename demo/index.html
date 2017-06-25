@@ -30,4 +30,10 @@
       </demo-snippet>
     </div>
   </body>
+  <script>
+     var doc = document.querySelector("full-calendar");
+     doc.addEventListener("event-select",function(data){
+        console.log("Select event detected");
+     });
+  </script>
 </html>
