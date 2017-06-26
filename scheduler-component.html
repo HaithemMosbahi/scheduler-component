@@ -226,24 +226,23 @@
 
       }
 
-
       /**
       * Returns the current view of the scheduler.
       * 
       * @return {string} the current view
       */
       getView() {
-
+        return this._scheduler.fullCalendar('getView');
       }
 
       /**
       * Changes the scheduler view.
       *
-      * @param {string} view name 
+      * @param {string} viewname the view name
       * @return {void}
       */
-      changeView() {
-
+      changeView(viewName) {
+        this._scheduler.fullCalendar('changeView', viewName);
       }
 
       /**
@@ -252,7 +251,7 @@
       * @return {string} a string representation of the current date
       */
       getDate() {
-
+        return this._scheduler.fullCalendar('getDate');
       }
 
       /**
@@ -262,7 +261,7 @@
       * @return {void}
       */
       goToDate(date) {
-
+        this._scheduler.fullCalendar('gotoDate', date);
       }
 
       /**
@@ -271,7 +270,7 @@
       * @return {void}
       */
       prev() {
-
+        this._scheduler.fullCalendar('prev');
       }
 
       /**
@@ -280,7 +279,7 @@
       * @return {void}
       */
       next() {
-
+        this._scheduler.fullCalendar('next');
       }
 
       /**
@@ -289,7 +288,7 @@
       * @return {void}
       */
       prevYear() {
-
+        this._scheduler.fullCalendar('prevYear');
       }
 
       /**
@@ -298,7 +297,7 @@
       * @return {void}
       */
       nextYear() {
-
+        this._scheduler.fullCalendar('nextYear');
       }
 
       /**
@@ -307,16 +306,17 @@
       * @return {void}
       */
       today() {
-
+        this._scheduler.fullCalendar('today');
       }
 
       /**
-      * Increments the date displayed on the scheduler by the given date
+      * Increments the date displayed on the scheduler by the given duration
       * 
+      * @param {string} duration in milliseconds
       * @return {void}
       */
-      incrementDate(date) {
-
+      incrementDate(duration) {
+        this.schedule.fullCalendar('incrementDate', duration);
       }
 
     }

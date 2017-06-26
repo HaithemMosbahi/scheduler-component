@@ -27,9 +27,11 @@
       <template>
         <scheduler-component default-view="agendaWeek" events='[{"title" : "event1","start" : "2017-06-06"},{"title" : "event2","start" : "2017-10-06","end" : "2017-11-06"},{ "title" : "event3","start" : "2017-15-06T12:30:00","allDay" : false}]'
           header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'>
-          </full-calendar>
+          </scheduler-component>
+                <button onclick="next()">next !</button>
+
       </template>
-      </scheduler-component>
+      </demo-snippet>
   </div>
 </body>
 <script>
@@ -67,6 +69,10 @@
 
   function getEvents() {
     return events;
+  }
+
+  function next(){
+    scheduler.today();
   }
 </script>
 
