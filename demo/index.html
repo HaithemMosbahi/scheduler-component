@@ -24,6 +24,7 @@
         <template>
           <full-calendar
              default-view="agendaWeek"
+             events='[{"title" : "event1","start" : "2017-06-06"},{"title" : "event2","start" : "2017-10-06","end" : "2017-11-06"},{ "title" : "event3","start" : "2017-15-06T12:30:00","allDay" : false}]'
              header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'></full-calendar>
         </template>
       </demo-snippet>
@@ -31,8 +32,9 @@
   </body>
   <script>
      var doc = document.querySelector("full-calendar");
-     doc.addEventListener("day-click",function(data){
-        console.log("day is clicked ");
+     doc.addEventListener("day-click",function(e){
+        console.log("day is clicked "+e.detail.date);
+
      });
      doc.addEventListener("event-click",function(data){
         console.log("event is clicked");
@@ -43,5 +45,26 @@
      doc.addEventListener("view-render",function(data){
         console.log("view is rendered");
      });
+
+    var  events =  [
+        {
+            title  : 'event1',
+            start  : '2017-06-06'
+        },
+        {
+            title  : 'event2',
+            start  : '2017-10-06',
+            end    : '2017-11-06'
+        },
+        {
+            title  : 'event3',
+            start  : '2017-15-06T12:30:00',
+            allDay : false // will make the time show
+        }
+    ];
+
+    function getEvents(){
+      return events;
+    }
   </script>
 </html>

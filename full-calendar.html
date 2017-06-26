@@ -158,7 +158,7 @@
           dayRender: this.dayRender,
           dayClick: (date, jsEvent, view) => {
             // shorthand object is used to construct the detail of the dispatched event 
-            this.dispatchEvent(new CustomEvent('day-click', { detail: { date, jsEvent, view } }));
+            this.dispatchEvent(new CustomEvent('day-click', { detail: { date, jsEvent, view } } ));
           },
           drop: (date, jsEvent, ui, resourceId) => {
             this.dispatchEvent(new CustomEvent('drop', { detail: { date, jsEvent, ui, resourceId } }));
@@ -220,6 +220,9 @@
         let calendar = this.$.calendar;
         //initialize fullCalendar component
         this._schedule = jQuery(calendar).fullCalendar(this._config);
+        console.log("events are "+this.events);
+        console.log("events are "+this.defaultView);
+
       }
 
     }
