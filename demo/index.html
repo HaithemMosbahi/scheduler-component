@@ -1,70 +1,73 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <title>full-calendar demo</title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <title>full-calendar demo</title>
 
-    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
-    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
-    <link rel="import" href="../full-calendar.html">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
-    <custom-style>
-      <style is="custom-style" include="demo-pages-shared-styles">
-      </style>
-    </custom-style>
-  </head>
-  <body>
-    <div class="vertical-section-container centered">
-      <h3>Basic full-calendar demo</h3>
-      <demo-snippet>
-        <template>
-          <full-calendar
-             default-view="agendaWeek"
-             events='[{"title" : "event1","start" : "2017-06-06"},{"title" : "event2","start" : "2017-10-06","end" : "2017-11-06"},{ "title" : "event3","start" : "2017-15-06T12:30:00","allDay" : false}]'
-             header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'></full-calendar>
-        </template>
-      </demo-snippet>
-    </div>
-  </body>
-  <script>
-     var doc = document.querySelector("full-calendar");
-     doc.addEventListener("day-click",function(e){
-        console.log("day is clicked "+e.detail.date);
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../scheduler-component.html">
 
-     });
-     doc.addEventListener("event-click",function(data){
-        console.log("event is clicked");
-     });
-     doc.addEventListener("drop",function(data){
-        console.log("drop detected");
-     });
-     doc.addEventListener("view-render",function(data){
-        console.log("view is rendered");
-     });
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
 
-    var  events =  [
-        {
-            title  : 'event1',
-            start  : '2017-06-06'
-        },
-        {
-            title  : 'event2',
-            start  : '2017-10-06',
-            end    : '2017-11-06'
-        },
-        {
-            title  : 'event3',
-            start  : '2017-15-06T12:30:00',
-            allDay : false // will make the time show
-        }
-    ];
+    </style>
+  </custom-style>
+</head>
 
-    function getEvents(){
-      return events;
+<body>
+  <div class="vertical-section-container centered">
+    <h3>Basic scheduler-component demo</h3>
+    <demo-snippet>
+      <template>
+        <scheduler-component default-view="agendaWeek" events='[{"title" : "event1","start" : "2017-06-06"},{"title" : "event2","start" : "2017-10-06","end" : "2017-11-06"},{ "title" : "event3","start" : "2017-15-06T12:30:00","allDay" : false}]'
+          header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'>
+          </full-calendar>
+      </template>
+      </scheduler-component>
+  </div>
+</body>
+<script>
+  var scheduler = document.querySelector("scheduler-component");
+  scheduler.addEventListener("day-click", function (e) {
+    console.log("day is clicked " + e.detail.date);
+
+  });
+  scheduler.addEventListener("event-click", function (e) {
+    console.log("event is clicked");
+  });
+  scheduler.addEventListener("drop", function (e) {
+    console.log("drop detected");
+  });
+  scheduler.addEventListener("view-render", function (e) {
+    console.log("view is rendered");
+  });
+
+  var events = [
+    {
+      title: 'event1',
+      start: '2017-06-06'
+    },
+    {
+      title: 'event2',
+      start: '2017-10-06',
+      end: '2017-11-06'
+    },
+    {
+      title: 'event3',
+      start: '2017-15-06T12:30:00',
+      allDay: false // will make the time show
     }
-  </script>
+  ];
+
+  function getEvents() {
+    return events;
+  }
+</script>
+
 </html>

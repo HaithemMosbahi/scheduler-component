@@ -5,7 +5,7 @@
 <script src="../fullcalendar/dist/fullcalendar.min.js"></script>
 
 
-<dom-module id="full-calendar">
+<dom-module id="scheduler-component">
   <link rel="import" type="css" href="../fullcalendar/dist/fullcalendar.min.css">
   <template>
     <style>
@@ -18,15 +18,15 @@
 
   <script>
     /**
-     * `full-calendar`
+     * `scheduler-component`
      * A Web Component wrapper for FullCalendar library that uses Polymer version 2.0 and ES6.
      *
      * @customElement
      * @polymer
      * @demo demo/index.html
      */
-    class FullCalendar extends Polymer.Element {
-      static get is() { return 'full-calendar'; }
+    class SchedulerComponent extends Polymer.Element {
+      static get is() { return 'scheduler-component'; }
       static get properties() {
         return {
           header: Object,
@@ -321,6 +321,6 @@
 
     }
 
-    window.customElements.define(FullCalendar.is, FullCalendar);
+    window.customElements.define(SchedulerComponent.is, SchedulerComponent);
   </script>
 </dom-module>

@@ -9,7 +9,7 @@
     <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
     <script src="../../web-component-tester/browser.js"></script>
 
-    <link rel="import" href="../full-calendar.html">
+    <link rel="import" href="../scheduler-component.html">
   </head>
   <body>
 
@@ -26,14 +26,14 @@
     </test-fixture>
 
     <script>
-      suite('full-calendar', function() {
+      suite('scheduler-component', function() {
 
         test('instantiating the element with default properties works', function() {
           var element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'full-calendar');
+          assert.equal(element.prop1, 'scheduler-component');
           var elementShadowRoot = element.shadowRoot;
           var elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello full-calendar!');
+          assert.equal(elementHeader.innerHTML, 'Hello scheduler-component!');
         });
 
         test('setting a property on the element works', function() {

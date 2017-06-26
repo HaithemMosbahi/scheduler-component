@@ -1,7 +1,7 @@
 {
-  "name": "full-calendar",
+  "name": "scheduler-component",
   "description": "A Web Component wrapper for FullCalendar library that uses Polymer version 2.0 and ES6.",
-  "main": "full-calendar.html",
+  "main": "scheduler-component.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
     "fullcalendar": "^3.4.0"

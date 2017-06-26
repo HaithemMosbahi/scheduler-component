@@ -1,4 +1,4 @@
-# \<full-calendar\>
+# \<scheduler-component\>
 
 A Web Component wrapper for FullCalendar library that uses Polymer version 2.0 and ES6.
 
