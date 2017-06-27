@@ -5,6 +5,13 @@ A Polymer 2.0 custom element for managing and scheduling events. A high level wr
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
 
+* Attributes
+
+|   Attribute   |      Type      | Default |                                              Description                                               |
+| ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+| `header` | *Object* |         | customize the header of the scheduler component.                                                                                                      |
+| `events` | *Array* |     []    |  list of events to be displayed on the scheduler.                                                                                                   |
+
 ## Events
 The scheduler element dispatches the events below :
 
