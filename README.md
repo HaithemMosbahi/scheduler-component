@@ -30,9 +30,22 @@ The list below describes methods that can be used to manipulate the scheduler :
 
 ## Events
 The scheduler element dispatches the events below :
+
 |   Event   |      Detail      |                                              Description                                               |
 | ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
-| `day-click` | *Object* | customize the header of the scheduler component.                                                                                                      |
+| `day-click` | *Object* | Fired when a day on the scheduler is clicked                                                                                                      |
+| `event-click` | *Object* | Fired when an event on the scheduler is clicke                                                                                                      |
+| `event-mouse-over` | *Object* | Fired when a mouse over on event is detected                                                                                                      |
+| `event-mouse-out` | *Object* | Fired a mouse out on event is detected.                                                                              |
+| `event-drag-start` | *Object* | Fired when a drag start on event is detected.                                                                             |
+| `event-drag-end` | *Object* | Fired when a frag end on one event is detected.                                                                                   |
+| `drop` | *Object* | Fired when an element is dropped on the scheduler. This is only dispatched when the droppable mode of the scheduler is set to true.                                                                                                     |
+| `event-drop` | *Object* | Dispatched when an event element has been dropped on the scheduler.                                                                                   |
+| `event-resize-start` | *Object* | Fired when resize operation on one event is started.                                                                           |
+| `event-resize-end` | *Object* | Fired when resize operation on one event is ended.                                                                                                      |
+| `event-resize` | *Object* | Fired when an event has been resized                                                                                   |
+| `view-render` | *Object* | Dispatched when the view of the scheduler is rendered. A navigation between days, weeks or months will fire this event                                                                                    |
+| `'view-destroy` | *Object* | Dispatched when the view is destroyed.                                                                               |
 
 
 ## Install

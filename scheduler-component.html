@@ -187,7 +187,7 @@
 
           },
           eventDragStop: (event, jsEvent, ui, view) => {
-            this.dispatchEvent(new CustomEvent('event-drag-start', { detail: { event, jsEvent, ui, view } }));
+            this.dispatchEvent(new CustomEvent('event-drag-end', { detail: { event, jsEvent, ui, view } }));
 
           },
           eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
