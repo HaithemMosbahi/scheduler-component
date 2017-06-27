@@ -1,5 +1,8 @@
 # \<scheduler-component\>
 
+[![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-component)
+
+
 A Polymer 2.0 custom element for managing and scheduling events. A high level wrapper for the [FullCalendar](https://fullcalendar.io) library that uses Polymer version 2.0 and ES6.
 
 ## Properties and Methods
@@ -11,6 +14,19 @@ The scheduler component can be configured and customized like any custom element
 | ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
 | `header` | *Object* |         | customize the header of the scheduler component.                                                                                                      |
 | `events` | *Array* |     []    |  list of events to be displayed on the scheduler.                                                                                                   |
+| `default-view` | *String* |     month    | The default view to be displayed on the scheduler.                                                                                                    |
+
+* Methods 
+
+One of the feature of the scheduler component is to provides an easy to use API in order to access to different fuctionalities that are supported by the FullCalendar library.
+
+The list below describes methods that can be used to manipulate the scheduler :
+
+|   Methods   |      Return Type      |   Parameters |                                           Description                                               |
+| ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+| `today` | void | -- | Navigates to the current date.                                                                                                     |
+| `next` | void | -- | Navigates to the next date based on the current view.
+| `prev` | void | -- | Navigates to the previous date based on the current view.                                                                                                     |
 
 ## Events
 The scheduler element dispatches the events below :
