@@ -32,7 +32,7 @@ The list below describes methods that can be used to manipulate the scheduler :
 The scheduler element dispatches the events below :
 
 |   Event   |      Detail      |                                              Description                                               |
-| ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------ |
 | `day-click` | *Object* | Fired when a day on the scheduler is clicked                                                                                                      |
 | `event-click` | *Object* | Fired when an event on the scheduler is clicke                                                                                                      |
 | `event-mouse-over` | *Object* | Fired when a mouse over on event is detected                                                                                                      |
