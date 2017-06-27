@@ -14,6 +14,10 @@ The scheduler component can be configured and customized like any custom element
 
 ## Events
 The scheduler element dispatches the events below :
+|   Event   |      Detail      |                                              Description                                               |
+| ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
+| `day-click` | *Object* | customize the header of the scheduler component.                                                                                                      |
+
 
 ## Install
 You can install this element using bower :
@@ -43,6 +47,18 @@ Your application is already set up to be tested via [web-component-tester](https
 
 ## Contributing 
 Comments, questions, suggestions, issues, and pull requests are all welcome.
+
+* Fork it!
+* Create your feature branch: git checkout -b my-new-feature
+* Commit your changes: git commit -am 'Add some feature'
+* Push to the branch: git push origin my-new-feature
+* Submit a pull request :D
+
+## History
+TODO: Write history
+
+## Credits
+Credits goes to the creator of [FullCalendar](https://fullcalendar.io) library.
 
 ## License
 MIT License
