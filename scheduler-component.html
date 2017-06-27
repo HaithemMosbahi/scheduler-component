@@ -32,19 +32,28 @@
           header: Object,
           events: Array,
           weekends: Boolean,
-          rtl: Boolean,
+          rtl: {
+            type:Boolean,
+            value:false
+          },
           hiddenDays: Array,
           fixedWeekCount: Boolean,
           weekNumbers: {
             type: Boolean,
-            value: true
+            value: false
           },
           businessHours: Object,
           height: Number,
           defaultDate: Object,
-          editable: Boolean,
-          droppable: Boolean,
-          ventStartEditable: Boolean,
+          editable: {
+            type: Boolean,
+            value: false
+          },
+          droppable: {
+            type:Boolean,
+            value: false
+          },
+          eventStartEditable: Boolean,
           eventDurationEditable: Boolean,
           defaultView: {
             type: String,
@@ -208,10 +217,6 @@
 
         }
         this._initialize();
-        //this.$.fullCalendar.addEventListener('event-select', e => this._dateselect(e));
-        //this.$.full-calendar.addEventListener('event-select', e => this._dateselect(e));
-
-
       }
       /**
       * This will initialize the calendar component
@@ -317,6 +322,10 @@
       */
       incrementDate(duration) {
         this.schedule.fullCalendar('incrementDate', duration);
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
       }
 
     }
