@@ -77,7 +77,7 @@ The scheduler element dispatches the events below :
 You can install this element using bower :
 
 ```
-$ bower install scheduler-component --save
+$ bower install --save HaithemMosbahi/scheduler-component
 ```
 
 
