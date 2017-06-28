@@ -1,6 +1,7 @@
 # \<scheduler-component\>
 
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-component)
+[![Build Status](https://travis-ci.org/HaithemMosbahi/scheduler-component.svg?branch=master)](https://travis-ci.org/HaithemMosbahi/scheduler-component)
 
 
 A Polymer 2.0 custom element for managing and scheduling events. A high level wrapper for the [FullCalendar](https://fullcalendar.io) library that uses Polymer version 2.0 and ES6.
