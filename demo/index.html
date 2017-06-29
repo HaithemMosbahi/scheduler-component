@@ -28,8 +28,9 @@
         <scheduler-component
           default-view="month"
           editable week-numbers
+          all-day-text="All Day"
           max-time="18:00:00" min-time="07:00:00"
-          events='[{"title" : "event1","start" : "2017-06-06"},{"title" : "event2","start" : "2017-06-12","end" : "2017-06-14"},{ "title" : "event3","start" : "2017-06-15T12:30:00","allDay" : false}]'
+          events='[{"title" : "event1","start" : "2017-06-06"},{"title" : "event2","start" : "2017-06-12","end" : "2017-06-14"},{ "title" : "event3","start" : "2017-06-15T12:30:00","allDay" : false},{ "title" : "event4","start" : "2017-06-17T10:30:00","durationEditable":false}]'
           header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'>
         </scheduler-component>
       </template>
