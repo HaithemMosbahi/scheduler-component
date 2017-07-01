@@ -17,7 +17,7 @@
   </template>
 
   <script>
-      /**
+    /**
        * `scheduler-component`
        * A Web Component wrapper for FullCalendar library that uses Polymer version 2.0 and ES6.
        *
@@ -25,324 +25,341 @@
        * @polymer
        * @demo demo/index.html
        */
-      class SchedulerComponent extends Polymer.Element {
-        static get is() { return 'scheduler-component'; }
-        static get properties() {
-          return {
-            header: Object,
-            events: Array,
-            weekends: Boolean,
-            rtl: {
-              type: Boolean,
-              value: false
-            },
-            hiddenDays: Array,
-            fixedWeekCount: Boolean,
-            weekNumbers: {
-              type: Boolean,
-              value: false
-            },
-            businessHours: Object,
-            height: Number,
-            defaultDate: Object,
-            editable: {
-              type: Boolean,
-              value: false
-            },
-            droppable: {
-              type: Boolean,
-              value: false
-            },
-            eventStartEditable: Boolean,
-            eventDurationEditable: Boolean,
-            defaultView: {
-              type: String,
-              value: 'month',
-              observer: '_viewChanged'
-            },
-            allDaySlot: {
-              type: Boolean,
-              value: true
-            },
-            allDayText: {
-              type: String,
-              value: 'all-day'
-            },
-            slotDuration: {
-              type: String,
-              value: '00:30:00'
-            },
-            slotLabelInterval: Object,
-            snapDuration: Object,
-            scrollTime: {
-              type: String,
-              value: '06:00:00'
-            },
-            minTime: {
-              type: String,
-              value: '00:00:00'
-            },
-            maxTime: {
-              type: String,
-              value: '24:00:00'
-            },
-            slotEventOverlap: {
-              type: Boolean,
-              value: true
-            },
-            nowIndicator: Boolean,
-            dragRevertDuration: {
-              type: Number,
-              value: 500
-            },
-            dragOpacity: {
-              type: Number,
-              value: .75
-            },
-            dragScroll: {
-              type: Boolean,
-              value: true
-            },
-            eventOverlap: Object,
-            eventConstraint: Object,
-            locale: String,
-            timezone: Boolean,
-            timeFormat: String,
-            eventRender: {
-              type: Object,
-              value: () => { }
-            },
-            dayRender: {
-              type: Object,
-              value: () => { }
-            },
-            options: Object,
-            _config: Object,
-            _scheduler: Object
-          };
-        }
-        static get availabeViews() {
-          return ["month", "basicDay", "basicWeek", "agendaWeek", "agendaDay", "listYear", "listMonth", "listWeek", "listDay"];
-        }
-        /**
-        * ready callback
-        */
-        ready() {
-          super.ready();
-          // Construct calendar's config object
-          this._config = {
-            theme: false,
-            header: this.header,
-            isRTL: this.rtl,
-            weekends: this.weekends,
-            hiddenDays: this.hiddenDays,
-            fixedWeekCount: this.fixedWeekCount,
-            weekNumbers: this.weekNumbers,
-            businessHours: this.businessHours,
-            height: this.height,
-            contentHeight: this.contentHeight,
-            aspectRatio: this.aspectRatio,
-            eventLimit: this.eventLimit,
-            defaultDate: this.defaultDate,
-            locale: this.locale,
-            timezone: this.timezone,
-            timeFormat: this.timeFormat,
-            editable: this.editable,
-            droppable: this.droppable,
-            eventStartEditable: this.eventStartEditable,
-            eventDurationEditable: this.eventDurationEditable,
-            defaultView: this.defaultView,
-            allDaySlot: this.allDaySlot,
-            allDayText: this.allDayText,
-            slotDuration: this.slotDuration,
-            slotLabelInterval: this.slotLabelInterval,
-            snapDuration: this.snapDuration,
-            scrollTime: this.scrollTime,
-            minTime: this.minTime,
-            maxTime: this.maxTime,
-            slotEventOverlap: this.slotEventOverlap,
-            nowIndicator: this.nowIndicator,
-            dragRevertDuration: this.dragRevertDuration,
-            dragOpacity: this.dragOpacity,
-            dragScroll: this.dragScroll,
-            eventOverlap: this.eventOverlap,
-            eventConstraint: this.eventConstraint,
-            eventRender: this.eventRender,
-            dayRender: this.dayRender,
-            dayClick: (date, jsEvent, view) => {
-              // shorthand object is used to construct the detail of the dispatched event 
-              this.dispatchEvent(new CustomEvent('day-click', { detail: { date, jsEvent, view } }));
-            },
-            drop: (date, jsEvent, ui, resourceId) => {
-              this.dispatchEvent(new CustomEvent('drop', { detail: { date, jsEvent, ui, resourceId } }));
-            },
-            eventClick: (calEvent, jsEvent, view) => {
-              this.dispatchEvent(new CustomEvent('event-cick', { detail: { calEvent, jsEvent, view } }));
-            },
-            eventMouseover: (calEvent, jsEvent, view) => {
-              this.dispatchEvent(new CustomEvent('event-mouse-over', { detail: { calEvent, jsEvent, view } }));
-            },
-            eventMouseout: (calEvent, jsEvent, view) => {
-              this.dispatchEvent(new CustomEvent('event-mouse-out', { detail: { calEvent, jsEvent, view } }));
+    class SchedulerComponent extends Polymer.Element {
+      static get is() { return 'scheduler-component'; }
+      static get properties() {
+        return {
+          header: {
+            type: Object,
+            observer: '_headerChanged'
+          },
+          events: Array,
+          weekends: Boolean,
+          rtl: {
+            type: Boolean,
+            value: false
+          },
+          hiddenDays: Array,
+          fixedWeekCount: Boolean,
+          weekNumbers: {
+            type: Boolean,
+            value: false
+          },
+          businessHours: Object,
+          height: Number,
+          defaultDate: Object,
+          editable: {
+            type: Boolean,
+            value: false
+          },
+          droppable: {
+            type: Boolean,
+            value: false
+          },
+          eventStartEditable: Boolean,
+          eventDurationEditable: Boolean,
+          defaultView: {
+            type: String,
+            value: 'month',
+            observer: '_viewChanged'
+          },
+          allDaySlot: {
+            type: Boolean,
+            value: true
+          },
+          allDayText: {
+            type: String,
+            value: 'all-day'
+          },
+          slotDuration: {
+            type: String,
+            value: '00:30:00'
+          },
+          slotLabelInterval: Object,
+          snapDuration: Object,
+          scrollTime: {
+            type: String,
+            value: '06:00:00'
+          },
+          minTime: {
+            type: String,
+            value: '00:00:00'
+          },
+          maxTime: {
+            type: String,
+            value: '24:00:00'
+          },
+          slotEventOverlap: {
+            type: Boolean,
+            value: true
+          },
+          nowIndicator: Boolean,
+          dragRevertDuration: {
+            type: Number,
+            value: 500
+          },
+          dragOpacity: {
+            type: Number,
+            value: .75
+          },
+          dragScroll: {
+            type: Boolean,
+            value: true
+          },
+          eventOverlap: Object,
+          eventConstraint: Object,
+          locale: String,
+          timezone: Boolean,
+          timeFormat: String,
+          eventRender: {
+            type: Object,
+            value: () => { }
+          },
+          dayRender: {
+            type: Object,
+            value: () => { }
+          },
+          options: Object,
+          _config: Object,
+          _scheduler: Object
+        };
+      }
+      static get availabeViews() {
+        return ["month", "basicDay", "basicWeek", "agendaWeek", "agendaDay", "listYear", "listMonth", "listWeek", "listDay"];
+      }
 
-            },
-            eventDragStart: (event, jsEvent, ui, view) => {
-              this.dispatchEvent(new CustomEvent('event-drag-start', { detail: { event, jsEvent, ui, view } }));
+      static get headerKeys() {
+        return ["left", "center", "right"];
+      }
+      /**
+      * ready callback
+      */
+      ready() {
+        super.ready();
+        // Construct calendar's config object
+        this._config = {
+          theme: false,
+          header: this.header,
+          isRTL: this.rtl,
+          weekends: this.weekends,
+          hiddenDays: this.hiddenDays,
+          fixedWeekCount: this.fixedWeekCount,
+          weekNumbers: this.weekNumbers,
+          businessHours: this.businessHours,
+          height: this.height,
+          contentHeight: this.contentHeight,
+          aspectRatio: this.aspectRatio,
+          eventLimit: this.eventLimit,
+          defaultDate: this.defaultDate,
+          locale: this.locale,
+          timezone: this.timezone,
+          timeFormat: this.timeFormat,
+          editable: this.editable,
+          droppable: this.droppable,
+          eventStartEditable: this.eventStartEditable,
+          eventDurationEditable: this.eventDurationEditable,
+          defaultView: this.defaultView,
+          allDaySlot: this.allDaySlot,
+          allDayText: this.allDayText,
+          slotDuration: this.slotDuration,
+          slotLabelInterval: this.slotLabelInterval,
+          snapDuration: this.snapDuration,
+          scrollTime: this.scrollTime,
+          minTime: this.minTime,
+          maxTime: this.maxTime,
+          slotEventOverlap: this.slotEventOverlap,
+          nowIndicator: this.nowIndicator,
+          dragRevertDuration: this.dragRevertDuration,
+          dragOpacity: this.dragOpacity,
+          dragScroll: this.dragScroll,
+          eventOverlap: this.eventOverlap,
+          eventConstraint: this.eventConstraint,
+          eventRender: this.eventRender,
+          dayRender: this.dayRender,
+          dayClick: (date, jsEvent, view) => {
+            // shorthand object is used to construct the detail of the dispatched event 
+            this.dispatchEvent(new CustomEvent('day-click', { detail: { date, jsEvent, view } }));
+          },
+          drop: (date, jsEvent, ui, resourceId) => {
+            this.dispatchEvent(new CustomEvent('drop', { detail: { date, jsEvent, ui, resourceId } }));
+          },
+          eventClick: (calEvent, jsEvent, view) => {
+            this.dispatchEvent(new CustomEvent('event-cick', { detail: { calEvent, jsEvent, view } }));
+          },
+          eventMouseover: (calEvent, jsEvent, view) => {
+            this.dispatchEvent(new CustomEvent('event-mouse-over', { detail: { calEvent, jsEvent, view } }));
+          },
+          eventMouseout: (calEvent, jsEvent, view) => {
+            this.dispatchEvent(new CustomEvent('event-mouse-out', { detail: { calEvent, jsEvent, view } }));
 
-            },
-            eventDragStop: (event, jsEvent, ui, view) => {
-              this.dispatchEvent(new CustomEvent('event-drag-end', { detail: { event, jsEvent, ui, view } }));
+          },
+          eventDragStart: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-drag-start', { detail: { event, jsEvent, ui, view } }));
 
-            },
-            eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
-              this.dispatchEvent(new CustomEvent('event-drop', { detail: { event, delta, revertFunc, jsEvent, ui, view } }));
+          },
+          eventDragStop: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-drag-end', { detail: { event, jsEvent, ui, view } }));
 
-            },
-            eventResizeStart: (event, jsEvent, ui, view) => {
-              this.dispatchEvent(new CustomEvent('event-resize-start', { detail: { event, jsEvent, ui, view } }));
+          },
+          eventDrop: (event, delta, revertFunc, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-drop', { detail: { event, delta, revertFunc, jsEvent, ui, view } }));
 
-            },
-            eventResizeStop: (event, jsEvent, ui, view) => {
-              this.dispatchEvent(new CustomEvent('event-resize-stop', { detail: { event, jsEvent, ui, view } }));
+          },
+          eventResizeStart: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-resize-start', { detail: { event, jsEvent, ui, view } }));
 
-            },
-            eventResize: (event, delta, revertFunc, jsEvent, ui, view) => {
-              this.dispatchEvent(new CustomEvent('event-resize', { detail: { event, delta, revertFunc, jsEvent, ui, view } }));
+          },
+          eventResizeStop: (event, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-resize-stop', { detail: { event, jsEvent, ui, view } }));
 
-            },
-            viewRender: (view, element) => {
-              this.dispatchEvent(new CustomEvent('view-render', { detail: { view, element } }));
+          },
+          eventResize: (event, delta, revertFunc, jsEvent, ui, view) => {
+            this.dispatchEvent(new CustomEvent('event-resize', { detail: { event, delta, revertFunc, jsEvent, ui, view } }));
 
-            },
-            viewDestroy: (view, element) => {
-              this.dispatchEvent(new CustomEvent('view-destroy', { detail: { view, element } }));
+          },
+          viewRender: (view, element) => {
+            this.dispatchEvent(new CustomEvent('view-render', { detail: { view, element } }));
 
-            }
+          },
+          viewDestroy: (view, element) => {
+            this.dispatchEvent(new CustomEvent('view-destroy', { detail: { view, element } }));
 
           }
-          this._initialize();
-        }
-        /**
-        * This will initialize the calendar component
-        */
-        _initialize() {
-          let calendar = this.$.calendar;
-          //initialize fullCalendar component
-          this._scheduler = jQuery(calendar);
-          this._scheduler.fullCalendar(this._config)
-          //add events
-          this._scheduler.fullCalendar('addEventSource', this.events)
 
         }
-
-        /**
-        * Returns the current view of the scheduler.
-        * 
-        * @return {string} the current view
-        */
-        getView() {
-          return this._scheduler.fullCalendar('getView');
-        }
-
-        /**
-        * Changes the scheduler view.
-        *
-        * @param {string} viewname the view name
-        * @return {void}
-        */
-        changeView(viewName) {
-          this._scheduler.fullCalendar('changeView', viewName);
-        }
-
-        /**
-        * Get the current date of the scheduler.
-        * 
-        * @return {string} a string representation of the current date
-        */
-        getDate() {
-          return this._scheduler.fullCalendar('getDate');
-        }
-
-        /**
-        * Navigates to the given date
-        * 
-        * @param {string} target date
-        * @return {void}
-        */
-        goToDate(date) {
-          this._scheduler.fullCalendar('gotoDate', date);
-        }
-
-        /**
-        * Navigates to the previous date based on the current view.
-        * 
-        * @return {void}
-        */
-        prev() {
-          this._scheduler.fullCalendar('prev');
-        }
-
-        /**
-        * Navigates to the next date based on the current view.
-        * 
-        * @return {void}
-        */
-        next() {
-          this._scheduler.fullCalendar('next');
-        }
-
-        /**
-        * Navigates to the previous year.
-        * 
-        * @return {void}
-        */
-        prevYear() {
-          this._scheduler.fullCalendar('prevYear');
-        }
-
-        /**
-        * Navigates to the next year.
-        * 
-        * @return {void}
-        */
-        nextYear() {
-          this._scheduler.fullCalendar('nextYear');
-        }
-
-        /**
-        * Navigates to current date
-        * 
-        * @return {void}
-        */
-        today() {
-          this._scheduler.fullCalendar('today');
-        }
-
-        /**
-        * Increments the date displayed on the scheduler by the given duration
-        * 
-        * @param {string} duration in milliseconds
-        * @return {void}
-        */
-        incrementDate(duration) {
-          this.schedule.fullCalendar('incrementDate', duration);
-        }
-
-        connectedCallback() {
-          super.connectedCallback();
-        }
-
-        /* 
-        * Observer method for the defaultView attribute.
-        *
-        */
-        _viewChanged(newValue, oldValue) {
-          if (SchedulerComponent.availabeViews.indexOf(newValue) < 0) {
-            throw new Error("Inavlid value for the attribute defaultView - Available views are "+SchedulerComponent.availabeViews.join());
-          }
-        }
+        this._initialize();
+      }
+      /**
+      * This will initialize the calendar component
+      */
+      _initialize() {
+        let calendar = this.$.calendar;
+        //initialize fullCalendar component
+        this._scheduler = jQuery(calendar);
+        this._scheduler.fullCalendar(this._config)
+        //add events
+        this._scheduler.fullCalendar('addEventSource', this.events)
 
       }
+
+      /**
+      * Returns the current view of the scheduler.
+      * 
+      * @return {string} the current view
+      */
+      getView() {
+        return this._scheduler.fullCalendar('getView');
+      }
+
+      /**
+      * Changes the scheduler view.
+      *
+      * @param {string} viewname the view name
+      * @return {void}
+      */
+      changeView(viewName) {
+        this._scheduler.fullCalendar('changeView', viewName);
+      }
+
+      /**
+      * Get the current date of the scheduler.
+      * 
+      * @return {string} a string representation of the current date
+      */
+      getDate() {
+        return this._scheduler.fullCalendar('getDate');
+      }
+
+      /**
+      * Navigates to the given date
+      * 
+      * @param {string} target date
+      * @return {void}
+      */
+      goToDate(date) {
+        this._scheduler.fullCalendar('gotoDate', date);
+      }
+
+      /**
+      * Navigates to the previous date based on the current view.
+      * 
+      * @return {void}
+      */
+      prev() {
+        this._scheduler.fullCalendar('prev');
+      }
+
+      /**
+      * Navigates to the next date based on the current view.
+      * 
+      * @return {void}
+      */
+      next() {
+        this._scheduler.fullCalendar('next');
+      }
+
+      /**
+      * Navigates to the previous year.
+      * 
+      * @return {void}
+      */
+      prevYear() {
+        this._scheduler.fullCalendar('prevYear');
+      }
+
+      /**
+      * Navigates to the next year.
+      * 
+      * @return {void}
+      */
+      nextYear() {
+        this._scheduler.fullCalendar('nextYear');
+      }
+
+      /**
+      * Navigates to current date
+      * 
+      * @return {void}
+      */
+      today() {
+        this._scheduler.fullCalendar('today');
+      }
+
+      /**
+      * Increments the date displayed on the scheduler by the given duration
+      * 
+      * @param {string} duration in milliseconds
+      * @return {void}
+      */
+      incrementDate(duration) {
+        this.schedule.fullCalendar('incrementDate', duration);
+      }
+
+      connectedCallback() {
+        super.connectedCallback();
+      }
+
+      /* 
+      * Observer method for the defaultView attribute.
+      *
+      */
+      _viewChanged(newValue, oldValue) {
+        if (SchedulerComponent.availabeViews.indexOf(newValue) < 0) {
+          throw new Error("Inavlid value for the attribute defaultView - Available views are " + SchedulerComponent.availabeViews.join());
+        }
+      }
+
+       /* 
+      * Observer method for the header attribute.
+      * The aim of this method is to validate the value of the header.
+      *
+      */
+      _headerChanged(newValue, oldValue) {
+        
+
+      }
+
+    }
 
     window.customElements.define(SchedulerComponent.is, SchedulerComponent);
   </script>
