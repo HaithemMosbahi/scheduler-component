@@ -1,0 +1,58 @@
+<!--
+     A custom element that encapsulate a scheduler's category.
+ -->
+<dom-module id="category-element">
+    <template>
+        <style>
+             :host {
+                display: block;
+                cursor: pointer;
+            }
+
+
+            .category {
+                display: inline-block;
+                padding-left: 2px;
+                height: inherit;
+                text-align: center;
+            }
+
+            .category-shape {
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                display: inline-block;
+            }
+        </style>
+        <div class="category">
+            <div style$="background-color: {{color}};" class="category-shape"></div>
+            <div style="display:inline-block;">[[label]]</div>
+        </div>
+    </template>
+
+    <script>
+        class CategoryElement extends Polymer.Element {
+            static get is() { return 'category-element'; }
+            static get properties() {
+                return {
+                    label: String,
+                    color: String
+                }
+
+            }
+
+            ready() {
+                super.ready();
+                this.addEventListener('click', e => this._clickListener(e));
+            }
+
+            _clickListener(event){
+                console.log(" category is clicked");
+            }
+
+
+        }
+
+        window.customElements.define(CategoryElement.is, CategoryElement);
+    </script>
+</dom-module>
