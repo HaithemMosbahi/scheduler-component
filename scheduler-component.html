@@ -29,7 +29,10 @@
       static get is() { return 'scheduler-component'; }
       static get properties() {
         return {
-          header: Object,
+          header: {
+            type: Object,
+            observer: '_headerChanged'
+          },
           events: Array,
           weekends: Boolean,
           rtl: {
@@ -109,8 +112,8 @@
           timezone: Boolean,
           timeFormat: String,
           dayNames: Array,
-          eventColor:String,
-          textColor:String,
+          eventColor: String,
+          textColor: String,
           eventRender: {
             type: Object,
             value: () => { }
@@ -128,7 +131,7 @@
         return ["month", "basicDay", "basicWeek", "agendaWeek", "agendaDay", "listYear", "listMonth", "listWeek", "listDay"];
       }
       static get defaultColors() {
-        return ["#1abc9c","#3498db","#f1c40f","#8e44ad","#e74c3c","#d35400","#2c3e50","#7f8c8d"];
+        return ["#1abc9c", "#3498db", "#f1c40f", "#8e44ad", "#e74c3c", "#d35400", "#2c3e50", "#7f8c8d"];
       }
       /**
       * ready callback
@@ -238,25 +241,25 @@
         this._scheduler = jQuery(calendar);
         this._scheduler.fullCalendar(this._config);
         //add events
-        this._scheduler.fullCalendar('addEventSource', {events:this.events,color:this.eventColor,textColor:this.textColor});
+        this._scheduler.fullCalendar('addEventSource', { events: this.events, color: this.eventColor, textColor: this.textColor });
 
       }
-    
+
       /**
       * Interates over events array.
       *
       */
-      _updateEvents(events){
+      _updateEvents(events) {
         events.forEach(event => {
 
         });
       }
 
-     /**
-     * Event color is calculated based on category property.
-     *
-     */
-      _getEventColor(){
+      /**
+      * Event color is calculated based on category property.
+      *
+      */
+      _getEventColor() {
 
       }
 
@@ -334,6 +337,7 @@
         this._scheduler.fullCalendar('nextYear');
       }
 
+
       /**
       * Navigates to current date
       * 
@@ -367,6 +371,15 @@
         }
       }
 
+      /* 
+     * Observer method for the header attribute.
+     * The aim of this method is to validate the value of the header.
+     *
+     */
+      _headerChanged(newValue, oldValue) {
+
+
+      }
     }
 
     window.customElements.define(SchedulerComponent.is, SchedulerComponent);
