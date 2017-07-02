@@ -33,7 +33,9 @@ The scheduler component can be configured and customized like any custom element
 | `slot-duration` | *String* |     00:30:00    | Default slot duration. This duration will be used when a new event is added without specifing its duration. 
 | `min-time` | *String* |     00:00:00    | The min time to be displayed on the scheduler.
 | `max-time` | *String* |     24:00:00    | The max time to be displayed on the scheduler.
-| `scroll-time` | *String* |     06:00:00    | Time on which the scroll becomes  enabled.                                                                        |
+| `scroll-time` | *String* |     06:00:00    | Time on which the scroll becomes  enabled.               |
+| `text-color` | *String* |   #FFFFFF     | Text color to be applied for each event.   
+| `event-color` | *String* |    #3a87ad    | Background color to be applied for each event.                                              |
 
 * Methods 
 
