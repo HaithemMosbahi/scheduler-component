@@ -56,11 +56,20 @@
                 super.ready();
                 this.addEventListener('click', e => this._clickListener(e));
             }
-
+            
+            /*
+            * Listens to click events on the host element.
+            *
+            */
             _clickListener(event) {
                 console.log(" category is clicked");
             }
-
+            
+            /*
+            * Returns  the style of the host element 
+            * based on the disabled property.
+            *
+            */
             categoryStyle(){
                 return `category ${this.disabled?'disabled':''}`;
             }
