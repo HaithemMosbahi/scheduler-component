@@ -23,8 +23,15 @@
                 border-radius: 50%;
                 display: inline-block;
             }
+
+            .disabled {
+                pointer-events: none !important;
+                cursor: none !important;
+                opacity: 0.5;
+                background: #CCC;
+            }
         </style>
-        <div class="category">
+        <div class$="{{categoryStyle()}}">
             <div style$="background-color: {{color}};" class="category-shape"></div>
             <div style="display:inline-block;">[[label]]</div>
         </div>
@@ -36,7 +43,11 @@
             static get properties() {
                 return {
                     label: String,
-                    color: String
+                    color: String,
+                    disabled: {
+                        type: Boolean,
+                        value: false
+                    }
                 }
 
             }
@@ -46,8 +57,12 @@
                 this.addEventListener('click', e => this._clickListener(e));
             }
 
-            _clickListener(event){
+            _clickListener(event) {
                 console.log(" category is clicked");
+            }
+
+            categoryStyle(){
+                return `category ${this.disabled?'disabled':''}`;
             }
 
 
