@@ -31,7 +31,7 @@
     <div id="calendar"></div>
     <div class="calendar-footer">
       <template is="dom-repeat" items="{{categories}}">
-        <category-element disabled label="{{item.label}}" color="{{item.color}}"></category-element>
+        <category-element label="{{item.label}}" color="{{item.color}}"></category-element>
     </template>
     </div>
   </template>
@@ -265,18 +265,26 @@
         this._scheduler = jQuery(calendar);
         this._scheduler.fullCalendar(this._config);
         //add events
-        this._scheduler.fullCalendar('addEventSource', { events: this.events, color: this.eventColor, textColor: this.textColor });
+        let schedulerEvents = this._updateEvents(this.events);
+        this._scheduler.fullCalendar('addEventSource', { events: schedulerEvents, color: this.eventColor, textColor: this.textColor });
 
       }
+
+      
 
       /**
       * Interates over events array.
       *
       */
       _updateEvents(events) {
-        events.forEach(event => {
-
+        let updatedEvents = [...events];
+        updatedEvents.forEach(event => {
+            if(event.category){
+              let eventCategory = this.categories.find(category => event.category===category.label);
+              event.backgroundColor =eventCategory.color || event.backgroundColor;
+            }
         });
+        return updatedEvents;
       }
 
       /**
