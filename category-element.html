@@ -31,7 +31,7 @@
                 background: #CCC;
             }
         </style>
-        <div class$="{{categoryStyle()}}">
+        <div class$="category {{disabledStyle()}}">
             <div style$="background-color: {{color}};" class="category-shape"></div>
             <div style="display:inline-block;">[[label]]</div>
         </div>
@@ -46,7 +46,7 @@
                     color: String,
                     disabled: {
                         type: Boolean,
-                        value: false
+                        value: true
                     }
                 }
 
@@ -56,7 +56,7 @@
                 super.ready();
                 this.addEventListener('click', e => this._clickListener(e));
             }
-            
+
             /*
             * Listens to click events on the host element.
             *
@@ -64,14 +64,14 @@
             _clickListener(event) {
                 console.log(" category is clicked");
             }
-            
+
             /*
             * Returns  the style of the host element 
             * based on the disabled property.
             *
             */
-            categoryStyle(){
-                return `category ${this.disabled?'disabled':''}`;
+            disabledStyle() {
+                return this.disabled ? 'disabled' : '';
             }
 
 
