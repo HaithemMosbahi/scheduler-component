@@ -1,0 +1,33 @@
+<!--
+     A custom element used to view the details of an event.
+ -->
+<dom-module id="scheduler-view-element">
+    <template>
+        <style>
+             :host {
+                display: block;
+            }
+
+
+        </style>
+       
+    </template>
+
+    <script>
+        class SchedulerViewElement extends Polymer.Element {
+            static get is() { return 'scheduler-view-element'; }
+            static get properties() {
+                return { }
+                }
+
+            ready() {
+                super.ready();
+            }
+
+           
+
+        }
+
+        window.customElements.define(SchedulerViewElement.is, SchedulerViewElement);
+    </script>
+</dom-module>

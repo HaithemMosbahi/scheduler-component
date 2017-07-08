@@ -4,7 +4,8 @@
   "main": "scheduler-component.html",
   "dependencies": {
     "polymer": "Polymer/polymer#^2.0.0",
-    "fullcalendar": "^3.4.0"
+    "fullcalendar": "^3.4.0",
+    "paper-dialog": "PolymerElements/paper-dialog#^2.0.0"
   },
   "devDependencies": {
     "iron-demo-helpers": "PolymerElements/iron-demo-helpers#^2.0.0",
