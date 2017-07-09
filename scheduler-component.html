@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="category-element.html">
-
+<link rel="import" href="scheduler-view-element.html">
 <script src="../jquery/dist/jquery.min.js"></script>
 <script src="../moment/min/moment.min.js"></script>
 <script src="../fullcalendar/dist/fullcalendar.min.js"></script>
@@ -34,6 +34,7 @@
         <category-element label="{{item.label}}" color="{{item.color}}"></category-element>
     </template>
     </div>
+    <scheduler-view-element id="dialog"></scheduler-view-element>
   </template>
 
   <script>
@@ -212,6 +213,7 @@
           },
           eventClick: (calEvent, jsEvent, view) => {
             this.dispatchEvent(new CustomEvent('event-cick', { detail: { calEvent, jsEvent, view } }));
+            this.$.dialog.open();
           },
           eventMouseover: (calEvent, jsEvent, view) => {
             this.dispatchEvent(new CustomEvent('event-mouse-over', { detail: { calEvent, jsEvent, view } }));

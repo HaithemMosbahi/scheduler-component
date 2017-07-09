@@ -7,24 +7,27 @@
              :host {
                 display: block;
             }
-
-
         </style>
-       
+
+        <paper-dialog>
+            <h2>Event Detail</h2>
+            <div>Event Detail body</div>
+        </paper-dialog>
+
     </template>
 
     <script>
         class SchedulerViewElement extends Polymer.Element {
             static get is() { return 'scheduler-view-element'; }
             static get properties() {
-                return { }
-                }
+                return {}
+            }
 
             ready() {
                 super.ready();
             }
 
-           
+
 
         }
 
