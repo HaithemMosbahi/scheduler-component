@@ -46,7 +46,7 @@
                     color: String,
                     disabled: {
                         type: Boolean,
-                        value: true
+                        value: false
                     }
                 }
 
@@ -62,7 +62,8 @@
             *
             */
             _clickListener(event) {
-                console.log(" category is clicked");
+                this.dispatchEvent(new CustomEvent('category-clicked', { detail: event }));
+
             }
 
             /*

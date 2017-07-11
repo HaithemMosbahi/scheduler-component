@@ -31,7 +31,7 @@
     <div id="calendar"></div>
     <div class="calendar-footer">
       <template is="dom-repeat" items="{{categories}}">
-        <category-element label="{{item.label}}" color="{{item.color}}"></category-element>
+        <category-element id="category" on-click="clickOnCategory()" disabled label="{{item.label}}" color="{{item.color}}"></category-element>
     </template>
     </div>
   </template>
@@ -391,6 +391,9 @@
 
       connectedCallback() {
         super.connectedCallback();
+        this.$.category.addEventListener("category-clicked",data => {
+           console.log("a category has been clicked");
+        });
       }
 
       /* 
@@ -411,6 +414,10 @@
       _headerChanged(newValue, oldValue) {
 
 
+      }
+
+      clickOnCategory(e){
+        console.log("Click on event e "+e);
       }
     }
 
