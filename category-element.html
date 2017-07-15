@@ -32,7 +32,7 @@
                 background: #CCC;
             }
         </style>
-        <div class$="category {{disabledStyle()}}">
+        <div id="categoryContainer" class$="category {{disabledStyle()}}">
             <div style$="background-color: {{color}};" class="category-shape"></div>
             <div style="display:inline-block;">[[label]]</div>
         </div>
@@ -47,7 +47,8 @@
                     color: String,
                     disabled: {
                         type: Boolean,
-                        value: false
+                        value: false,
+                        observer: '_disabledChange'
                     }
                 }
 
@@ -74,6 +75,17 @@
             */
             disabledStyle() {
                 return this.disabled ? 'disabled' : '';
+            }
+
+            _disabledChange(newValue, oldValue){
+                console.log("Disabled has changed "+newValue);
+                if(newValue === false){
+                   this.$.categoryContainer.classList.remove('disabled');
+                }
+                else{
+                   this.$.categoryContainer.classList.add('disabled');
+ 
+                }
             }
 
 
