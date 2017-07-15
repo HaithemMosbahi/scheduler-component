@@ -77,14 +77,18 @@
                 return this.disabled ? 'disabled' : '';
             }
 
-            _disabledChange(newValue, oldValue){
-                console.log("Disabled has changed "+newValue);
-                if(newValue === false){
-                   this.$.categoryContainer.classList.remove('disabled');
+            /**
+            * Observes disabled value change.
+            * Add /remove disabled class based on the newValue property
+            *
+            */
+            _disabledChange(newValue, oldValue) {
+                if (newValue) {
+                    this.$.categoryContainer.classList.add('disabled');
                 }
-                else{
-                   this.$.categoryContainer.classList.add('disabled');
- 
+                else {
+                    this.$.categoryContainer.classList.remove('disabled');
+
                 }
             }
 
