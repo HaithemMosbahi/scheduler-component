@@ -69,7 +69,10 @@
             type: Boolean,
             value: false
           },
-          events: Array,
+          events: {
+            type: Array,
+            observer: '_eventsChanged'
+          },
           weekends: Boolean,
           rtl: {
             type: Boolean,
@@ -429,6 +432,11 @@
       _headerChanged(newValue, oldValue) {
 
 
+      }
+
+      _eventsChanged() {
+        this._scheduler.fullCalendar('removeEvents');
+        this._scheduler.fullCalendar('addEventSource', this.events)
       }
 
       /**
