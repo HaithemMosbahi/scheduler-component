@@ -230,7 +230,7 @@
             this.dispatchEvent(new CustomEvent('drop', { detail: { date, jsEvent, ui, resourceId } }));
           },
           eventClick: (calEvent, jsEvent, view) => {
-            this.dispatchEvent(new CustomEvent('event-cick', { detail: { calEvent, jsEvent, view } }));
+            this.dispatchEvent(new CustomEvent('event-click', { detail: { calEvent, jsEvent, view } }));
             this.$.dialog.open();
           },
           eventMouseover: (calEvent, jsEvent, view) => {
