@@ -161,7 +161,7 @@
           options: Object,
           categories: {
             type: Array,
-            value: [{ "label": "Holiday", "color": "#1abc9c" }, { "label": "Work", "color": "#3498db" }, { "label": "Music", "color": "#e74c3c" }]
+            value: []
           },
           _config: Object,
           _scheduler: Object
@@ -298,8 +298,9 @@
         let updatedEvents = [...events];
         updatedEvents.forEach(event => {
           if (event.category) {
-            let eventCategory = this.categories.find(category => event.category === category.label);
+            let eventCategory = this.categories.find(category => event.category.toUpperCase() === category.label.toUpperCase());
             event.backgroundColor = eventCategory.color || event.backgroundColor;
+            event.borderColor = eventCategory.color || event.borderColor;
           }
         });
         return updatedEvents;
@@ -454,7 +455,6 @@
       *
       */
       _showEvents(categoryName) {
-        console.log("show events related to " + categoryName);
         let clientEvents = this._scheduler.fullCalendar('clientEvents');
         clientEvents.filter(event => event.category === categoryName)
           .forEach(event => {
@@ -469,7 +469,6 @@
       *
       */
       _hideEvents(categoryName) {
-        console.log("hide events related to " + categoryName);
         let clientEvents = this._scheduler.fullCalendar('clientEvents');
         clientEvents.filter(event => event.category === categoryName)
           .forEach(event => {
