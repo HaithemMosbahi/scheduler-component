@@ -286,9 +286,7 @@
         this._scheduler = jQuery(calendar);
         this._scheduler.fullCalendar(this._config);
         //add events
-        let schedulerEvents = this._updateEvents(this.events);
-        this._scheduler.fullCalendar('addEventSource', { events: schedulerEvents, color: this.eventColor, textColor: this.textColor });
-
+        this._refetchEvents();
       }
 
 
@@ -306,6 +304,15 @@
           }
         });
         return updatedEvents;
+      }
+
+      _refetchEvents() {
+        let schedulerEvents = this._updateEvents(this.events);
+        this._scheduler.fullCalendar('addEventSource', { events: schedulerEvents, color: this.eventColor, textColor: this.textColor });
+      }
+
+      _removeEvents() {
+        this._scheduler.fullCalendar('removeEvents');
       }
 
       /**
@@ -434,9 +441,14 @@
 
       }
 
-      _eventsChanged() {
-        this._scheduler.fullCalendar('removeEvents');
-        this._scheduler.fullCalendar('addEventSource', this.events)
+      _eventsChanged(newValue, oldValue) {
+        // make sure that the newValue is not undefined. 
+        // For thr first call, the oldValue will have the currentValue of the property
+        // newValue will be undefined
+        if (newValue) {
+          this._removeEvents();
+          this._refetchEvents();
+        }
       }
 
       /**
