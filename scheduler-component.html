@@ -441,11 +441,11 @@
 
       }
 
-      _eventsChanged(oldValue, newValue) {
-        // make sure that the newValue is not undefined. 
-        // For thr first call, the oldValue will have the currentValue of the property
-        // newValue will be undefined
-        if (newValue) {
+      _eventsChanged(newValue, oldValue) {
+        // make sure that the oldValue is not undefined. 
+        // For thr first call, the newValue will have the currentValue of the property
+        // oldValue will be undefined
+        if (oldValue) {
           this._removeEvents();
           this._refetchEvents();
         }
