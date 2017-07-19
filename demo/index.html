@@ -35,7 +35,7 @@
           hidden-days='[0]'
           max-time="18:00:00" min-time="07:00:00"
           day-names='["Sunday", "Monday", "Tuesday", "Wednesday","Thursday", "Friday", "Saturday"]'
-          categories='[{ "label": "Holiday", "color": "#1abc9c" }, { "label": "Work", "color": "#3498db" }, { "label": "Meeting", "color": "#e74c3c" }]'
+          categories='[{ "label": "Holiday", "color": "#1abc9c","hidden":false }, { "label": "Work", "color": "#3498db","hidden":false }, { "label": "Meeting", "color": "#e74c3c","hidden":true }]'
           events='[{"title" : "event1","start" : "2017-07-06","category":"Holiday"},{"title" : "event2","start" : "2017-07-12","end" : "2017-07-14","category":"Holiday"},{ "title" : "event3","start" : "2017-07-15T12:30:00","allDay" : false,"category":"Work"},{ "title" : "event4","start" : "2017-07-17T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event5","start" : "2017-07-22T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event6","start" : "2017-07-24T10:30:00","durationEditable":false,"category":"Meeting"}]'
           header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'>
         </scheduler-component>
