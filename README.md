@@ -83,7 +83,30 @@ You can install this element using bower :
 ```
 $ bower install --save HaithemMosbahi/scheduler-component
 ```
+## RoadMap
 
+Scheduler V 1.x
+
+- [x] A declarative web component that wraps the fullCalendar library 
+
+- [x] Customize and configure the scheduler using properties
+
+- [x] Dispatch events as they occur ( click on event, click on day, change view , etc )
+
+- [ ] Organize scheduler's events using categories 
+    
+   - [x] Show / Hide categories in the bottom of the scheduler
+
+   - [ ] Show / Hide events when select / deselect a category 
+
+  - [x] Coloration of events based on categories
+
+
+Scheduler V 2.x
+
+- [ ] Add default view, create and edit templates
+
+- [ ] Support overriding view, create and edit templates
 
 ## Install the Polymer-CLI
 
