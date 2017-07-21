@@ -459,6 +459,7 @@
           disabledValue = selectedCategory.disabled,
           categoryLabel = selectedCategory.label;
         if (disabledValue) {
+          selectedCategory.setAttribute("disabled", "false");
           selectedCategory.removeAttribute("disabled");
           this._showEvents(categoryLabel);
         } else {
