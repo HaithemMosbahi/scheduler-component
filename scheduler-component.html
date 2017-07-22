@@ -37,7 +37,7 @@
       }
     </style>
     <div id="calendar"></div>
-    <template is="dom-if" if="{{showCategories}}">
+    <template is="dom-if" if="{{_showCategoriesContainer}}">
       <div class="calendar-footer">
         <template is="dom-repeat" items="{{categories}}">
           <category-element id="category" disabled="{{item.hidden}}" on-click="categoryClicked" label="{{item.label}}" color="{{item.color}}"></category-element>
@@ -165,7 +165,11 @@
             value: []
           },
           _config: Object,
-          _scheduler: Object
+          _scheduler: Object,
+          _showCategoriesContainer: {
+            type: Boolean,
+            computed: '_computeShowCategories(showCategories,categories)'
+          }
         };
       }
       static get availabeViews() {
@@ -274,6 +278,11 @@
         this._initialize();
 
       }
+
+      connectedCallback() {
+        super.connectedCallback();
+      }
+
       /**
       * This will initialize the calendar component
       */
@@ -287,7 +296,8 @@
       }
 
       /**
-      * Interates over events array.
+      * Interates over each event from the events property
+      * in order to update its structure and data.
       *
       */
       _updateEvents(events) {
@@ -295,21 +305,32 @@
         updatedEvents.forEach(event => {
           if (event.category) {
             let eventCategory = this.categories.find(category => event.category.toUpperCase() === category.label.toUpperCase());
-            event.backgroundColor = eventCategory.color || event.backgroundColor;
-            event.borderColor = eventCategory.color || event.borderColor;
-            if(eventCategory && eventCategory.hidden === true){
-              event.className = ['hide'];
+            if (eventCategory) {
+              event.backgroundColor = eventCategory.color || event.backgroundColor;
+              event.borderColor = eventCategory.color || event.borderColor;
+              if (eventCategory.hidden === true) {
+                event.className = ['hide'];
+              }
             }
+
           }
         });
         return updatedEvents;
       }
-
+      
+      /**
+      * Adds events to the scheduler.
+      *
+      **/
       _refetchEvents() {
         let schedulerEvents = this._updateEvents(this.events);
         this._scheduler.fullCalendar('addEventSource', { events: schedulerEvents, color: this.eventColor, textColor: this.textColor });
       }
-
+      
+      /**
+      * Removes events from the scheduler
+      *
+      **/
       _removeEvents() {
         this._scheduler.fullCalendar('removeEvents');
       }
@@ -416,10 +437,6 @@
         this.schedule.fullCalendar('incrementDate', duration);
       }
 
-      connectedCallback() {
-        super.connectedCallback();
-      }
-
       /* 
       * Observer method for the defaultView attribute.
       *
@@ -440,6 +457,10 @@
 
       }
 
+      /**
+      * Observer method for events property.
+      * re-render events on the scheduler when the events property changes.
+      */
       _eventsChanged(newValue, oldValue) {
         // make sure that the oldValue is not undefined. 
         // For thr first call, the newValue will have the currentValue of the property
@@ -495,6 +516,14 @@
             event.className.push('hide');
             this._scheduler.fullCalendar('updateEvent', event);
           });
+      }
+
+      /**
+      * Compute the value of _showCategoriesContainer proerty
+      *
+      */
+      _computeShowCategories(showCategories, schedulerCategories) {
+        return showCategories && schedulerCategories.length > 0;
       }
     }
 
