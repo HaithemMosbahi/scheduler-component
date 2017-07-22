@@ -12,7 +12,16 @@ in a more declarative way and without worring about the implementation details.
 Being a web component that follows custom elements V1 specifications, the scheduler
 can be ineroperable with other JS frameworks such as Angular and Vue.js.
 
+![alt text](demo/scheduler.png "A simple scheduler with categories")
 
+
+## Features 
+
+* Manage and schedule events.
+* Customize and configure the scueduler using properties.
+* Build advanced calendar / scheduler in a declarative manner.
+* Organize events using categories ( e.g Work, Holiday, Meeting)
+* Show / Hide events by selecting / deselecting categories.
 
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
@@ -73,8 +82,8 @@ The scheduler element dispatches the events below :
 
 |   Event   |      Detail      |                                              Description                                               |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------- |
-| `day-click` | *Object* | Fired when a day on the scheduler is clicked                                                                                                      |
-| `event-click` | *Object* | Fired when an event on the scheduler is clicke                                                                                                      |
+| `day-click` | *{ date, jsEvent, view }* | Fired when a day on the scheduler is clicked                                                                                                      |
+| `event-click` | *{calEvent, jsEvent, view }* | Fired when an event on the scheduler is clicke                                                                                                      |
 | `event-mouse-over` | *Object* | Fired when a mouse over on event is detected                                                                                                      |
 | `event-mouse-out` | *Object* | Fired a mouse out on event is detected.                                                                              |
 | `event-drag-start` | *Object* | Fired when a drag start on event is detected.                                                                             |
@@ -85,7 +94,7 @@ The scheduler element dispatches the events below :
 | `event-resize-end` | *Object* | Fired when resize operation on one event is ended.                                                                                                      |
 | `event-resize` | *Object* | Fired when an event has been resized                                                                                   |
 | `view-render` | *Object* | Dispatched when the view of the scheduler is rendered. A navigation between days, weeks or months will fire this event                                                                                    |
-| `'view-destroy` | *Object* | Dispatched when the view is destroyed.                                                                               |
+| `view-destroy` | *Object* | Dispatched when the view is destroyed.                                                                               |
 
 
 ## Install
