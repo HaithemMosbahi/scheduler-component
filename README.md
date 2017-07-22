@@ -30,7 +30,7 @@ A live [demo](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-com
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
 
-* Attributes
+* *Attributes*
 
 |   Attribute   |      Type      | Default |                                              Description                                               |
 | ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
@@ -57,10 +57,9 @@ The scheduler component can be configured and customized like any custom element
 | `text-color` | *String* |   #FFFFFF     | Text color to be applied for each event. 
 | `event-color` | *String* |    #3a87ad    | Background color to be applied for each event. 
 | `show-categories` | *Boolean* |    false    | Wether to show categories in the bottom of the scheduler or not. This is linked to the categories property.    
-| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color (string) and hidden ( default is false, wether to show the events related to this category or not.)
-                                              |        
+| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color (string) and hidden ( default is false, wether to show the events related to this category or not.)|        
 
-* Methods 
+* *Methods* 
 
 One of the feature of the scheduler component is to provides an easy to use API in order to access to different fuctionalities that are supported by the FullCalendar library.
 
