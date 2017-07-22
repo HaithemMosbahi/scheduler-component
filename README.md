@@ -7,6 +7,13 @@
 
 A Polymer 2.0 custom element for managing and scheduling events. A high level wrapper for the [FullCalendar](https://fullcalendar.io) library that uses Polymer version 2.0 and ES6.
 
+The scheduler makes it easy to configure and customize the full calendar component
+in a more declarative way and without worring about the implementation details.
+Being a web component that follows custom elements V1 specifications, the scheduler
+can be ineroperable with other JS frameworks such as Angular and Vue.js.
+
+
+
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
 
@@ -34,8 +41,12 @@ The scheduler component can be configured and customized like any custom element
 | `min-time` | *String* |     00:00:00    | The min time to be displayed on the scheduler.
 | `max-time` | *String* |     24:00:00    | The max time to be displayed on the scheduler.
 | `scroll-time` | *String* |     06:00:00    | Time on which the scroll becomes  enabled.               |
-| `text-color` | *String* |   #FFFFFF     | Text color to be applied for each event.   
-| `event-color` | *String* |    #3a87ad    | Background color to be applied for each event.                                              |
+| `text-color` | *String* |   #FFFFFF     | Text color to be applied for each event. 
+| `event-color` | *String* |    #3a87ad    | Background color to be applied for each event. 
+| `show-categories` | *Boolean* |    false    | Wether to show categories in the bottom of the scheduler or not. This is linked to the categories property
+                                              |                                             |
+| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color ( string) and hidden ( default is false, wther to show the events related to this category or not.)
+                                              | 
 
 * Methods 
 
