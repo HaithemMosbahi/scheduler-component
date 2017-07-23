@@ -1,0 +1,80 @@
+<link rel="import" href="category-element.html">
+
+<!--
+     A custom element that encapsulate categories container.
+ -->
+<dom-module id="categories-element">
+    <template>
+        <style>
+             :host {
+                display: block;
+            }
+
+            .categories-container {
+                height: 30px;
+                width: 100%;
+                background-color: #f5f5f5;
+                margin-top: 1px;
+                position: relative;
+            }
+
+            category-element {
+                display: inline-block;
+                vertical-align: -webkit-baseline-middle;
+            }
+        </style>
+        <div class="categories-container">
+            <template is="dom-repeat" items="{{items}}">
+                <category-element id="category" disabled="{{item.hidden}}" on-click="_clickOnCategory" label="{{item.label}}" color="{{item.color}}"></category-element>
+            </template>
+        </div>
+    </template>
+
+    <script>
+        class CategoriesElement extends Polymer.Element {
+            static get is() { return 'categories-element'; }
+            static get properties() {
+                return {
+                    /**
+                    * list of category
+                    **/
+                    items: Array
+                }
+
+            }
+
+            ready() {
+                super.ready();
+            }
+
+
+            /**
+            * Fired when a category is clicked 
+            *
+            */
+            _clickOnCategory(e) {
+                let selectedCategory = Polymer.dom(e).localTarget,
+                    disabledValue = selectedCategory.disabled,
+                    categoryLabel = selectedCategory.label;
+                if (disabledValue) {
+                    selectedCategory.setAttribute("disabled", "false");
+                    selectedCategory.removeAttribute("disabled");
+                } else {
+                    selectedCategory.setAttribute("disabled", "true");
+                }
+
+                // Fire event to inform that a category has been clicked.
+                let detail = {
+                    disabled: !disabledValue,
+                    category: e.model.item
+                }
+                this.dispatchEvent(new CustomEvent('category-click', { detail }));
+
+            }
+
+
+        }
+
+        window.customElements.define(CategoriesElement.is, CategoriesElement);
+    </script>
+</dom-module>
