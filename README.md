@@ -27,6 +27,31 @@ A live [demo](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-com
 
 ![alt text](demo/scheduler.png "A simple scheduler with categories")
 
+## Install
+You can install this element using bower :
+
+```
+$ bower install --save HaithemMosbahi/scheduler-component
+```
+
+## Usage
+1. Import scheduler-component
+
+Once you have installed this element, you can import it in your project using HTML import :
+
+```html
+  <link rel="import" href="bower_components/scheduler-component.html">
+```
+
+2. Start using it :
+
+Once the element is imported , you can start using the scheduler in your application :
+
+```html
+  <scheduler-component>
+  </scheduler-component>
+```
+
 
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
@@ -99,12 +124,6 @@ The scheduler element dispatches the events below :
 | `view-destroy` | *{ view, element }* | Dispatched when the view is destroyed.                                                                               |
 
 
-## Install
-You can install this element using bower :
-
-```
-$ bower install --save HaithemMosbahi/scheduler-component
-```
 ## RoadMap
 
 Scheduler V 1.x
