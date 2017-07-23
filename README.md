@@ -3,6 +3,7 @@
 [![Published on webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-component)
 [![Build Status](https://travis-ci.org/HaithemMosbahi/scheduler-component.svg?branch=master)](https://travis-ci.org/HaithemMosbahi/scheduler-component)
 [![Bower version](https://badge.fury.io/bo/scheduler-component.svg)](https://badge.fury.io/bo/scheduler-component)
+[![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/scheduler-component)
 
 
 A Polymer 2.0 custom element for managing and scheduling events. A high level wrapper for the [FullCalendar](https://fullcalendar.io) library that uses Polymer version 2.0 and ES6.
@@ -30,7 +31,7 @@ A live [demo](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-com
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
 
-* *Attributes*
+* *Attributes* 
 
 |   Attribute   |      Type      | Default |                                              Description                                               |
 | ------------- | ----------------- | ------- | ------------------------------------------------------------------------------------------------------ |
