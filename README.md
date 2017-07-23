@@ -52,6 +52,7 @@ Once the element is imported , you can start using the scheduler in your applica
   </scheduler-component>
 ```
 
+So easy, isn't it ? :smiley:
 
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
