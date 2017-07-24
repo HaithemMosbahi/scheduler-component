@@ -54,6 +54,17 @@ Once the element is imported , you can start using the scheduler in your applica
 
 So easy, isn't it ? :smiley:
 
+## Examples
+
+This section illustrates some use cases of the scheduler scomponent with an inline demo :
+
+* Simple scheduler 
+
+* Editable scheduler 
+
+* Scheduler with categories 
+
+
 ## Properties and Methods
 The scheduler component can be configured and customized like any custom element using properties and methods.
 
