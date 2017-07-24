@@ -56,7 +56,8 @@ So easy, isn't it ? :smiley:
 
 ## Examples
 
-This section illustrates some use cases of the scheduler scomponent with an inline demo :
+This section illustrates some use cases of the scheduler scomponent with an inline demo.
+Note that inline demo is only visible when opening the component page on [webcomponents.org](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-component)
 
 * Simple scheduler 
 
@@ -67,7 +68,7 @@ This example shows a simple scheduler that displays a list of events.
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="pf-calendar-events.html">
+    <link rel="import" href="scheduler-component.html">
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -97,7 +98,7 @@ This example shows how easy it is to to turn the scheduler into an edit mode by 
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="pf-calendar-events.html">
+    <link rel="import" href="scheduler-component.html">
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
@@ -130,7 +131,7 @@ The third example emphasizes the use of categories to organize events on the sch
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="pf-calendar-events.html">
+    <link rel="import" href="scheduler-component.html">
     <next-code-block></next-code-block>
   </template>
 </custom-element-demo>
