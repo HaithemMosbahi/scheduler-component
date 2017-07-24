@@ -60,9 +60,108 @@ This section illustrates some use cases of the scheduler scomponent with an inli
 
 * Simple scheduler 
 
+This example shows a simple scheduler that displays a list of events.
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="pf-calendar-events.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+
+<scheduler-component
+          default-view="month"
+          event-color="#8e44ad"
+          text-color="#ecf0f1"
+          events='[
+            {"title" : "event1","start" : "2017-07-06"},
+            {"title" : "event2","start" : "2017-07-12","end" : "2017-07-14"},
+            {"title" : "event3","start" : "2017-07-15T12:30:00","allDay" :false}]'>
+</scheduler-component>
+
+
+```
+
 * Editable scheduler 
 
+This example shows how easy it is to to turn the scheduler into an edit mode by adding the editable property. Thus, events are now draggable and can be resized. Also, this example adds additional properties to customize the view :
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="pf-calendar-events.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+
+<scheduler-component
+          default-view="month"
+          editable week-numbers
+          max-time="18:00:00" min-time="07:00:00"
+          event-color="#8e44ad"
+          text-color="#ecf0f1"
+          events='[
+            {"title" : "event1","start" : "2017-07-06"},
+            {"title" : "event2","start" : "2017-07-12","end" : "2017-07-14"},
+            {"title" : "event3","start" : "2017-07-15T12:30:00","allDay" :false}]'>
+</scheduler-component>
+
+
+```
+
 * Scheduler with categories 
+
+The third example emphasizes the use of categories to organize events on the scheduler. Also, the categories container is a sort of scheduler legends of events that have been displayed. Events can be shown / hidden by selecting / deselecting their category.
+
+
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="pf-calendar-events.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+
+<scheduler-component
+          default-view="month"
+          show-categories
+          editable week-numbers
+          all-day-text="All Day"
+          event-color="#378006"
+          text-color="#ecf0f1"
+          hidden-days='[0]'
+          max-time="18:00:00" min-time="07:00:00"
+          categories='[{ "label": "Holiday", "color": "#1abc9c","hidden":false },
+                       { "label": "Work", "color": "#3498db","hidden":true },
+                       { "label": "Meeting", "color": "#e74c3c","hidden":false }]'
+          events='[{"title" : "event1","start" : "2017-07-06","category":"Holiday"},
+                  {"title" : "event2","start" : "2017-07-12","end" : "2017-07-14","category":"Holiday"},
+                  { "title" : "event3","start" : "2017-07-15T12:30:00","allDay" : false,"category":"Work"},
+                  { "title" : "event4","start" : "2017-07-17T10:30:00","durationEditable":false "category":"Meeting"},
+                  { "title" : "event5","start" : "2017-07-22T10:30:00","durationEditable":false,"category":"Meeting"},
+                  { "title" : "event6","start" : "2017-07-24T10:30:00","durationEditable":false,"category":"Meeting"}]'
+          header='{"right":"today","left":"prev,next","center":"month,agendaWeek"}'>
+        </scheduler-component>
+
+
+```
+
 
 
 ## Properties and Methods
@@ -76,16 +175,16 @@ The scheduler component can be configured and customized like any custom element
 | `events` | *Array* |     []    |  list of events to be displayed on the scheduler.                                                                                                   |
 | `default-view` | *String* |     month    | The default view to be displayed on the scheduler.   
 | `weekends` | *Boolean* |     true    | Whether to show the weekends or not.
-| `rtl` | *Boolean* |     false    | RTL mode.
+| `rtl` | *Boolean* |   :false    | RTL mode.
 | `hidden-days` | *Array* |     []    | List of days to be hidden.  
-| `week-numbers` | *Boolean* |     false    | Whether to show week numbers or not    
+| `week-numbers` | *Boolean* |   :false    | Whether to show week numbers or not    
 | `business-hours` | *Object* |     {}    | Object that describes scheduler business hours. 
 | `height` | *string* |     {}    | Calendar's height.
 | `default-date` | *Object* |     {}    | Default date to be displayed when the scheduler is opened.
-| `editable` | *Boolean* |     false    | Enable or disable edit mode.
-| `droppable` | *Boolean* |     false    | Whether to allow dropping elements on the scheduler or not.
-| `event-start-editable` | *Boolean* |     false    | Whether to allow changing event's start date.
-| `event-duration-editable` | *Boolean* |     false    | Whether to allow changing event's end date
+| `editable` | *Boolean* |   :false    | Enable or disable edit mode.
+| `droppable` | *Boolean* |   :false    | Whether to allow dropping elements on the scheduler or not.
+| `event-start-editable` | *Boolean* |   :false    | Whether to allow changing event's start date.
+| `event-duration-editable` | *Boolean* |   :false    | Whether to allow changing event's end date
 | `all-day-slot` | *Boolean* |    true   | Whether to display the all day slot.
 | `all-day-text` | *String* |     all-day    | Text to be displayed on the all day slot.
 | `slot-duration` | *String* |     00:30:00    | Default slot duration. This duration will be used when a new event is added without specifing its duration. 
@@ -94,8 +193,8 @@ The scheduler component can be configured and customized like any custom element
 | `scroll-time` | *String* |     06:00:00    | Time on which the scroll becomes  enabled.               |
 | `text-color` | *String* |   #FFFFFF     | Text color to be applied for each event. 
 | `event-color` | *String* |    #3a87ad    | Background color to be applied for each event. 
-| `show-categories` | *Boolean* |    false    | Wether to show categories in the bottom of the scheduler or not. This is linked to the categories property.    
-| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color (string) and hidden ( default is false, wether to show the events related to this category or not.)|        
+| `show-categories` | *Boolean* |  :false    | Wether to show categories in the bottom of the scheduler or not. This is linked to the categories property.    
+| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color (string) and hidden ( default i:false, wether to show the events related to this category or not.)|        
 
 * *Methods* 
 
