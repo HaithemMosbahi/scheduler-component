@@ -35,7 +35,7 @@ $ bower install --save HaithemMosbahi/scheduler-component
 ```
 
 ## Usage
-1. Import scheduler-component
+1. Import the scheduler-component
 
 Once you have installed this element, you can import it in your project using HTML import :
 
@@ -56,7 +56,8 @@ So easy, isn't it ? :smiley:
 
 ## Examples
 
-This section illustrates some use cases of the scheduler scomponent with an inline demo.
+This section illustrates some use cases of the scheduler component with an inline demo.
+
 Note that inline demo is only visible when opening the component page on [webcomponents.org](https://www.webcomponents.org/element/HaithemMosbahi/scheduler-component)
 
 * Simple scheduler 
@@ -123,7 +124,7 @@ This example shows how easy it is to to turn the scheduler into an edit mode by 
 
 * Scheduler with categories 
 
-The third example emphasizes the use of categories to organize events on the scheduler. Also, the categories container is a sort of scheduler legends of events that have been displayed. Events can be shown / hidden by selecting / deselecting their category.
+The third example emphasizes the use of categories to organize events on the scheduler. Also, the categories container is a sort of legends of events that have been displayed. Events can be shown / hidden by selecting / deselecting their category.
 
 
 <!---
@@ -139,8 +140,8 @@ The third example emphasizes the use of categories to organize events on the sch
 -->
 ```html
 
-<scheduler-component
-          default-view="month"
+      <scheduler-component
+         default-view="month"
           show-categories
           editable week-numbers
           all-day-text="All Day"
@@ -151,13 +152,8 @@ The third example emphasizes the use of categories to organize events on the sch
           categories='[{ "label": "Holiday", "color": "#1abc9c","hidden":false },
                        { "label": "Work", "color": "#3498db","hidden":true },
                        { "label": "Meeting", "color": "#e74c3c","hidden":false }]'
-          events='[{"title" : "event1","start" : "2017-07-06","category":"Holiday"},
-                  {"title" : "event2","start" : "2017-07-12","end" : "2017-07-14","category":"Holiday"},
-                  { "title" : "event3","start" : "2017-07-15T12:30:00","allDay" : false,"category":"Work"},
-                  { "title" : "event4","start" : "2017-07-17T10:30:00","durationEditable":false "category":"Meeting"},
-                  { "title" : "event5","start" : "2017-07-22T10:30:00","durationEditable":false,"category":"Meeting"},
-                  { "title" : "event6","start" : "2017-07-24T10:30:00","durationEditable":false,"category":"Meeting"}]'
-          header='{"right":"today","left":"prev,next","center":"month,agendaWeek"}'>
+          events='[{"title" : "event1","start" : "2017-07-06","category":"Holiday"},{"title" : "event2","start" : "2017-07-12","end" : "2017-07-14","category":"Holiday"},{ "title" : "event3","start" : "2017-07-15T12:30:00","allDay" : false,"category":"Work"},{ "title" : "event4","start" : "2017-07-17T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event5","start" : "2017-07-22T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event6","start" : "2017-07-24T10:30:00","durationEditable":false,"category":"Meeting"}]'
+          header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'>
         </scheduler-component>
 
 
