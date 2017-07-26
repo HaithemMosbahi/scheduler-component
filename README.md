@@ -246,9 +246,11 @@ Scheduler V 1.x
     
    - [x] Show / Hide categories in the bottom of the scheduler
 
-   - [x] Show / Hide events when select / deselect a category 
+   - [x] Show / Hide events when selecting / deselecting a category 
 
   - [x] Coloration of events based on categories
+
+ - [ ] Add custom properties API to style the scheduler 
 
 
 Scheduler V 2.x
@@ -256,6 +258,14 @@ Scheduler V 2.x
 - [ ] Add default view, create and edit templates
 
 - [ ] Support overriding view, create and edit templates
+
+- [ ] Extensible Themes
+
+- [ ] Add the ability to override categories template.
+
+For further details on the scheduler Roadmap, check out our discussion [here](https://github.com/HaithemMosbahi/scheduler-component/issues/9) or join us on [Gitter](https://gitter.im/scheduler-component).
+
+Your ideas and suggestions are very welcome :smiley:
 
 
 ## Development 
