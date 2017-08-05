@@ -82,9 +82,9 @@ This example shows a simple scheduler that displays a list of events.
           event-color="#8e44ad"
           text-color="#ecf0f1"
           events='[
-            {"title" : "event1","start" : "2017-07-06"},
-            {"title" : "event2","start" : "2017-07-12","end" : "2017-07-14"},
-            {"title" : "event3","start" : "2017-07-15T12:30:00","allDay" :false}]'>
+            {"title" : "event1","start" : "2017-08-06"},
+            {"title" : "event2","start" : "2017-08-12","end" : "2017-08-14"},
+            {"title" : "event3","start" : "2017-08-15T12:30:00","allDay" :false}]'>
 </scheduler-component>
 
 
@@ -114,9 +114,10 @@ This example shows how easy it is to to turn the scheduler into an edit mode by 
           event-color="#8e44ad"
           text-color="#ecf0f1"
           events='[
-            {"title" : "event1","start" : "2017-07-06"},
-            {"title" : "event2","start" : "2017-07-12","end" : "2017-07-14"},
-            {"title" : "event3","start" : "2017-07-15T12:30:00","allDay" :false}]'>
+            {"title" : "event1","start" : "2017-08-06"},
+            {"title" : "event2","start" : "2017-08-12","end" : "2017-08-14"},
+            {"title" : "event3","start" : "2017-08-15T12:30:00","allDay" :false}]'
+            header='{"center":"title","left":"prev,next,today","right":"month,agendaWeek,agendaDay"}'>
 </scheduler-component>
 
 
@@ -152,7 +153,7 @@ The third example emphasizes the use of categories to organize events on the sch
           categories='[{ "label": "Holiday", "color": "#1abc9c","hidden":false },
                        { "label": "Work", "color": "#3498db","hidden":true },
                        { "label": "Meeting", "color": "#e74c3c","hidden":false }]'
-          events='[{"title" : "event1","start" : "2017-07-06","category":"Holiday"},{"title" : "event2","start" : "2017-07-12","end" : "2017-07-14","category":"Holiday"},{ "title" : "event3","start" : "2017-07-15T12:30:00","allDay" : false,"category":"Work"},{ "title" : "event4","start" : "2017-07-17T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event5","start" : "2017-07-22T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event6","start" : "2017-07-24T10:30:00","durationEditable":false,"category":"Meeting"}]'
+          events='[{"title" : "event1","start" : "2017-08-06","category":"Holiday"},{"title" : "event2","start" : "2017-08-12","end" : "2017-08-14","category":"Holiday"},{ "title" : "event3","start" : "2017-08-15T12:30:00","allDay" : false,"category":"Work"},{ "title" : "event4","start" : "2017-08-17T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event5","start" : "2017-08-22T10:30:00","durationEditable":false,"category":"Meeting"},{ "title" : "event6","start" : "2017-08-24T10:30:00","durationEditable":false,"category":"Meeting"}]'
           header='{"right":"today","left":"prev,next","center":"month,agendaWeek,agendaDay"}'>
         </scheduler-component>
 
