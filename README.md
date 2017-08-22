@@ -297,7 +297,7 @@ Comments, questions, suggestions, issues, and pull requests are all welcome.
 * Submit a pull request :D
 
 ## History
-TODO: Write history
+Check out the [release](https://github.com/HaithemMosbahi/scheduler-component/releases) section
 
 ## Credits
 Credits goes to the creator of [FullCalendar](https://fullcalendar.io) library.
