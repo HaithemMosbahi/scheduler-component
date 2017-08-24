@@ -70,6 +70,14 @@
             type: Boolean,
             value: false
           },
+          selectable: {
+            type: Boolean,
+            value: false
+          },
+          selectHelper: {
+            type: Boolean,
+            value: false
+          },
           droppable: {
             type: Boolean,
             value: false
@@ -205,8 +213,13 @@
           eventRender: this.eventRender,
           dayRender: this.dayRender,
           dayNames: this.dayNames,
+          selectable: this.selectable,
+          selectHelper: this.selectHelper,
+          select: (start, end, jsEvent, view) => {
+            this.dispatchEvent(new CustomEvent('select', { detail: { start, end, jsEvent, view } }));
+          },
           dayClick: (date, jsEvent, view) => {
-            // shorthand object is used to construct the detail of the dispatched event 
+            // shorthand object is used to construct the detail of the dispatched event
             this.dispatchEvent(new CustomEvent('day-click', { detail: { date, jsEvent, view } }));
           },
           drop: (date, jsEvent, ui, resourceId) => {
@@ -334,7 +347,7 @@
 
       /**
       * Returns the current view of the scheduler.
-      * 
+      *
       * @return {string} the current view
       */
       getView() {
@@ -353,7 +366,7 @@
 
       /**
       * Get the current date of the scheduler.
-      * 
+      *
       * @return {string} a string representation of the current date
       */
       getDate() {
@@ -362,7 +375,7 @@
 
       /**
       * Navigates to the given date
-      * 
+      *
       * @param {string} target date
       * @return {void}
       */
@@ -372,7 +385,7 @@
 
       /**
       * Navigates to the previous date based on the current view.
-      * 
+      *
       * @return {void}
       */
       prev() {
@@ -381,7 +394,7 @@
 
       /**
       * Navigates to the next date based on the current view.
-      * 
+      *
       * @return {void}
       */
       next() {
@@ -390,7 +403,7 @@
 
       /**
       * Navigates to the previous year.
-      * 
+      *
       * @return {void}
       */
       prevYear() {
@@ -399,7 +412,7 @@
 
       /**
       * Navigates to the next year.
-      * 
+      *
       * @return {void}
       */
       nextYear() {
@@ -409,7 +422,7 @@
 
       /**
       * Navigates to current date
-      * 
+      *
       * @return {void}
       */
       today() {
@@ -418,7 +431,7 @@
 
       /**
       * Increments the date displayed on the scheduler by the given duration
-      * 
+      *
       * @param {string} duration in milliseconds
       * @return {void}
       */
@@ -426,7 +439,7 @@
         this.schedule.fullCalendar('incrementDate', duration);
       }
 
-      /* 
+      /*
       * Observer method for the defaultView attribute.
       *
       */
@@ -436,7 +449,7 @@
         }
       }
 
-      /* 
+      /*
      * Observer method for the header attribute.
      * The aim of this method is to validate the value of the header.
      *
@@ -451,7 +464,7 @@
       * re-render events on the scheduler when the events property changes.
       */
       _eventsChanged(newValue, oldValue) {
-        // make sure that the oldValue is not undefined. 
+        // make sure that the oldValue is not undefined.
         // For thr first call, the newValue will have the currentValue of the property
         // oldValue will be undefined
         if (oldValue) {
@@ -461,7 +474,7 @@
       }
 
       /**
-      * Fired when a category is clicked 
+      * Fired when a category is clicked
       *
       */
       _categoryClicked(e) {
