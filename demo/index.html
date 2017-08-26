@@ -28,6 +28,7 @@
        <scheduler-component
          default-view="month"
           show-categories
+          selectable
           editable week-numbers
           all-day-text="All Day"
           event-color="#378006"
@@ -62,6 +63,10 @@
   });
   scheduler.addEventListener("date-range-changed", function (e) {
     console.log("date range changed", e.detail.start, e.detail.end);
+  });
+
+  scheduler.addEventListener("select", function (e) {
+    console.log("select period is selected", e.detail.start, e.detail.end);
   });
 
   function next() {
