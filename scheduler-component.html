@@ -23,7 +23,11 @@
     </style>
     <div id="calendar"></div>
     <template is="dom-if" if="{{_showCategoriesContainer}}">
-      <categories-element id="categories" items="{{categories}}"></categories-element>
+      <categories-element
+        id="categories"
+        items="{{categories}}"
+        on-category-click="_categoryClicked"
+      ></categories-element>
     </template>
   </template>
 
@@ -270,13 +274,6 @@
 
         }
         this._initialize();
-        // wait for dom change to complete
-        setTimeout(() => {
-          this.shadowRoot.querySelector('categories-element').addEventListener('category-click', e => this._categoryClicked(e.detail));
-
-        }, 500);
-
-
       }
 
       connectedCallback() {
@@ -478,6 +475,7 @@
       *
       */
       _categoryClicked(e) {
+        e = e.detail;
         let isCategoryDisabled = e.disabled;
         if (isCategoryDisabled) {
           this._hideEvents(e.category.label);
