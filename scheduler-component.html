@@ -288,6 +288,7 @@
       * This will initialize the calendar component
       */
       _initialize() {
+        Polymer.flush();
         let calendar = this.$.calendar;
         //initialize fullCalendar component
         this._scheduler = jQuery(calendar);
