@@ -192,7 +192,9 @@ The scheduler component can be configured and customized like any custom element
 | `text-color` | *String* |   #FFFFFF     | Text color to be applied for each event. 
 | `event-color` | *String* |    #3a87ad    | Background color to be applied for each event. 
 | `show-categories` | *Boolean* |  :false    | Wether to show categories in the bottom of the scheduler or not. This is linked to the categories property.    
-| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color (string) and hidden ( default i:false, wether to show the events related to this category or not.)|        
+| `categories` | *Array* |    []    | events's catgories. A Category has the following properties : label (required - string ), color (string) and hidden ( default i:false, wether to show the events related to this category or not.)|  
+| `selectable` | *Boolean* |    false    | Allows a user to highlight multiple days or timeslots by clicking and dragging.|  
+| `select-helper` | *Boolean* |    false    | Whether to draw a "placeholder" event while the user is dragging.|      
 
 * *Methods* 
 
@@ -232,6 +234,7 @@ The scheduler element dispatches the events below :
 | `view-render` | *{ view, element }* | Dispatched when the view of the scheduler is rendered. A navigation between days, weeks or months will fire this event                                                                                    |
 | `date-range-changed` | *{ start, end}* | Dispatched when the visible date range of the scheduler has changed, e.g. a navigation between days, weeks or months. Parameters are date strings in the ISO format (e.g. 2017-08-26). This event is fired in the same situations as the "view-render" event and exists for developers' convenience. |
 | `view-destroy` | *{ view, element }* | Dispatched when the view is destroyed.                                                                               |
+| `select` | *{ start, end, jsEvent, view }* | Dispatched when a period of time is selected by the user.                                                                               |
 
 
 ## RoadMap
