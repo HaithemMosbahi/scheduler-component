@@ -230,6 +230,7 @@ The scheduler element dispatches the events below :
 | `event-resize-end` | *{ event, jsEvent, ui, view }* | Fired when resize operation on one event is ended.                                                                                                      |
 | `event-resize` | *{ event, delta, revertFunc, jsEvent, ui, view }* | Fired when an event has been resized                                                                                   |
 | `view-render` | *{ view, element }* | Dispatched when the view of the scheduler is rendered. A navigation between days, weeks or months will fire this event                                                                                    |
+| `date-range-changed` | *{ start, end}* | Dispatched when the visible date range of the scheduler has changed, e.g. a navigation between days, weeks or months. Parameters are date strings in the ISO format (e.g. 2017-08-26). This event is fired in the same situations as the "view-render" event and exists for developers' convenience. |
 | `view-destroy` | *{ view, element }* | Dispatched when the view is destroyed.                                                                               |
 
 

@@ -60,6 +60,9 @@
   scheduler.addEventListener("view-render", function (e) {
     console.log("view is rendered");
   });
+  scheduler.addEventListener("date-range-changed", function (e) {
+    console.log("date range changed", e.detail.start, e.detail.end);
+  });
 
   function next() {
     scheduler.today();
