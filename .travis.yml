@@ -10,7 +10,7 @@ addons:
     packages:
     - google-chrome-stable
 before_script:
-- npm install -g bower polymer-cli --unsafe-perm
+- npm install -g bower polymer-cli
 - bower install
 - polymer lint
 script: xvfb-run wct
