@@ -10,7 +10,7 @@ addons:
     packages:
     - google-chrome-stable
 before_script:
-- npm install -g bower polylint web-component-tester
+- npm install -g bower polymer-cli
 - bower install
-- polylint
-script: xvfb-run wct
+- polymer lint
+script: xvfb-run polymer test

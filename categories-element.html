@@ -1,3 +1,4 @@
+<link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="category-element.html">
 
 <!--
@@ -31,6 +32,11 @@
     </template>
 
     <script>
+        /**
+        * @customElement
+        * @polymer
+        * @extends HTMLElement
+        */
         class CategoriesElement extends Polymer.Element {
             static get is() { return 'categories-element'; }
             static get properties() {
