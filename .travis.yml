@@ -13,4 +13,4 @@ before_script:
 - npm install -g bower polymer-cli
 - bower install
 - polymer lint
-script: xvfb-run wct
+script: xvfb-run polymer test
