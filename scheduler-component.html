@@ -265,6 +265,8 @@
           },
           viewRender: (view, element) => {
             this.dispatchEvent(new CustomEvent('view-render', { detail: { view, element } }));
+            if (view.activeRange == null) return;
+
             const start = view.activeRange.start.toISOString();
             const end = view.activeRange.end.toISOString();
             this.dispatchEvent(new CustomEvent('date-range-changed', { detail: { start, end } }));
