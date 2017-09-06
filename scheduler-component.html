@@ -64,7 +64,10 @@
             value: false
           },
           hiddenDays: Array,
-          fixedWeekCount: Boolean,
+          disableFixedWeekCount: {
+            type: Boolean,
+            value: false
+          },
           weekNumbers: {
             type: Boolean,
             value: false
@@ -87,6 +90,10 @@
           droppable: {
             type: Boolean,
             value: false
+          },
+          aspectRatio: {
+            type: Number,
+            value: 1.35
           },
           eventStartEditable: Boolean,
           eventDurationEditable: Boolean,
@@ -185,7 +192,7 @@
           isRTL: this.rtl,
           weekends: this.weekends,
           hiddenDays: this.hiddenDays,
-          fixedWeekCount: this.fixedWeekCount,
+          fixedWeekCount: !this.disableFixedWeekCount,
           weekNumbers: this.weekNumbers,
           businessHours: this.businessHours,
           height: this.height,
